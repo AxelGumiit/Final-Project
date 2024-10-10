@@ -1,7 +1,7 @@
 
 
 ```
-yarn
-yarn dev
+To run
+npm run dev
 ```
 
