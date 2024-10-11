@@ -1,5 +1,4 @@
 import { Environment, OrbitControls } from "@react-three/drei";
-import { Avatar } from "./Avatar";
 import { Avatar2 } from "./Avatar2";
 
 export const Experience = () => {
