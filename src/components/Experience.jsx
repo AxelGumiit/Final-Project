@@ -8,8 +8,8 @@ export const Experience = () => {
     <Environment preset="sunset"></Environment>
     <ambientLight intensity={0.5}></ambientLight>
       <OrbitControls />
-      <group scale={2.5}><Avatar2/></group>
-      
+      <group scale={2}><Avatar2/></group>
+      w
     </>
   );
 };
