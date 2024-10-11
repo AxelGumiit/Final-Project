@@ -6,9 +6,12 @@ export const Experience = () => {
     <>
     <Environment preset="sunset"></Environment>
     <ambientLight intensity={0.5}></ambientLight>
-      <OrbitControls />
-      <group scale={2}><Avatar2/></group>
-      w
+    
+      <group scale={1}><Avatar2/></group>
+      <mesh rotation-x = {-Math.PI /2} position-y={-0.001}>
+      <planeGeometry args ={[10,10]}/>
+      <meshStandardMaterial color="lightpurple"/>
+      </mesh>
     </>
   );
 };
