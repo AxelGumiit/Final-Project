@@ -1,29 +1,35 @@
-import { Environment, OrbitControls } from "@react-three/drei";
-import { Avatar2 } from "./Avatar2";
+import { Environment, OrbitControls, Cylinder } from "@react-three/drei";
 import { useRef, useState } from "react";
-import { Table } from "./desk";
+import { Physics, RigidBody, CylinderCollider } from "@react-three/rapier";
+import { AvatarController } from "./AvatarController.jsx";
+
+
 
 export const Experience = () => {
   const myMesh = useRef();
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
+
   return (
-
     <>
+  
+      <Environment preset="sunset" />
+      <ambientLight intensity={0.5} />
     
-    <Environment preset="sunset"></Environment>
-    <ambientLight intensity={0.5}></ambientLight>
-    
-      <group scale={1}><Avatar2/></group>
-      <mesh rotation-x = {-Math.PI /2} position-y={-0.001}>
-      <planeGeometry args ={[10,10]}/>
-      <meshStandardMaterial color="lightpurple"/>
-      </mesh>
+      <Physics>
+        <group position-y={-1}>
+          <RigidBody colliders={false} type="fixed" position-y={-0.5} friction={2}>
+            <CylinderCollider args={[1, 10]} />
+            <Cylinder scale={[5, 1, 5]} receiveShadow>
+              <meshStandardMaterial color="white" />
+            </Cylinder>
+        
+          </RigidBody>
 
-      <group position-z={4}>
-      <mesh scale = {active ? 2 : 1} onClick={() => setActive(!active)} ref ={myMesh}>
-        <Table/>
-        </mesh>
-        </group>
+          <AvatarController/>
+          </group>
+      </Physics>
+      
+    
     </>
   );
 };

@@ -1,9 +1,9 @@
+import React from 'react';
+import { useGLTF } from '@react-three/drei';
 
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+export function WorkDesk(props) {
+  const { nodes, materials } = useGLTF('models/Desk.glb');
 
-export function Table(props) {
-  const { nodes, materials } = useGLTF('models/Desk.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[-0.617, 0.781, -0.001]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -27,7 +27,7 @@ export function Table(props) {
         <mesh geometry={nodes.Desk_2.geometry} material={materials.Wood} />
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('models/Desk.glb')
+useGLTF.preload('models/Desk.glb');
