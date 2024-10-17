@@ -34,7 +34,6 @@ export const Experience = () => {
                   <meshStandardMaterial attach="material" color="#DAB1DA" />
                 </Plane>
 
-                {/* Boundary Colliders */}
                 <RigidBody type="fixed" colliders="hull">
                   <CuboidCollider args={[0.5, 10, 10]} position={[-5, 5, 0]} />
                   <CuboidCollider args={[0.5, 10, 10]} position={[5, 5, 0]} />

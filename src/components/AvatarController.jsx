@@ -7,7 +7,7 @@ import { Avatar } from "./Avatar";
 
 
 
-const MOVEMENT_SPEED = 0.01;
+const MOVEMENT_SPEED = 0.1;
 const MAX_VELOCITY = 2;
 
 export const AvatarController = () => {
