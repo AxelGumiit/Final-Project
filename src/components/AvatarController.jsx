@@ -6,15 +6,16 @@ import { Controls } from "../App";
 import { Avatar } from "./Avatar";
 
 
-
+const JumpForce = 0.3;
 const MOVEMENT_SPEED = 0.1;
 const MAX_VELOCITY = 2;
 
 export const AvatarController = () => {
- 
+  const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
   const leftPressed = useKeyboardControls((state) => state[Controls.left]);
   const rightPressed = useKeyboardControls((state) => state[Controls.right]);
   const backPressed = useKeyboardControls((state) => state[Controls.back]);
+  
   const forwardPressed = useKeyboardControls(
     (state) => state[Controls.forward]
   );
@@ -23,7 +24,10 @@ export const AvatarController = () => {
 
   useFrame(() => {
     const movement = { x: 0, y: 0, z: 0 };
-   
+    if (jumpPressed && isOnFloor.current){
+      movement.y += JumpForce;
+      isOnFloor.current = false;
+    }
     const linvel = rigidbody.current.linvel();
     let changeRotate = false;
     if (rightPressed && linvel.x < MAX_VELOCITY) {
