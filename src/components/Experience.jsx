@@ -31,7 +31,7 @@ export const Experience = () => {
                 <CylinderCollider args={[1, 10]} />
                 
                 <Plane args={[10, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, 1, 0]}>
-                  <meshStandardMaterial attach="material" color="#DAB1DA" />
+                  <meshStandardMaterial attach="material" color="black" />
                 </Plane>
 
                 <RigidBody type="fixed" colliders="hull">
