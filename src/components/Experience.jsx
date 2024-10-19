@@ -2,10 +2,10 @@ import { Environment, OrbitControls, Cylinder } from "@react-three/drei";
 import { useRef, useState } from "react";
 import { Physics, RigidBody, CylinderCollider, CuboidCollider } from "@react-three/rapier";
 import { AvatarController } from "./AvatarController.jsx";
-import { WorkDesk } from "./desk.jsx";
+import { WorkDesk } from "../Items/desk.jsx";
 import { Plane } from "@react-three/drei";
 import { Html } from '@react-three/drei';
-import { DeskScene } from "./DeskScene.jsx";
+import { DeskScene } from "../Scenes/DeskScene.jsx";
 
 
 export const Experience = () => {
