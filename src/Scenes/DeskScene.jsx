@@ -20,7 +20,7 @@ export const DeskScene = () => {
     <group>
       <Environment preset="sunset" />
       <ambientLight intensity={1} />
-      <OrbitControls />
+      <OrbitControls/>
 
       <group
         scale={3.5}
