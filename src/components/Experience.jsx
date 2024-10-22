@@ -19,8 +19,8 @@ export const Experience = () => {
   return (
     
     <>
-
-      {scene === "main" && (
+    {scene === "main" && (
+      
         <>
           <Environment preset="sunset" />
           <ambientLight intensity={0.5} />
