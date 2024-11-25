@@ -1,13 +1,17 @@
 import { WorkDesk } from "../Items/desk";
-import { Environment, OrbitControls, Html } from '@react-three/drei';
+import { Environment, Html } from '@react-three/drei';
 import { useState, useEffect } from 'react';
-
+import { Project1 } from "../Items/gameConsole";
+import { Project1_Scene } from "./Project1_Scene";
 
 export const DeskScene = () => {
+  const [scene, setScene] = useState("DeskScene");
   const [hovered, setHovered] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const handleClick = () => {
+    setScene("Project1");
+  };
 
-  // Effect to trigger fade out after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true);
@@ -17,48 +21,78 @@ export const DeskScene = () => {
   }, []);
 
   return (
-    <group>
-      <Environment preset="sunset" />
-      <ambientLight intensity={1} />
-      <OrbitControls/>
+    <>
+      {scene === "DeskScene" && (
+        <>
+          <group>
+            <Environment preset="sunset" />
+            <ambientLight intensity={1} />
 
-      <group
-        scale={3.5}
-        position={[-1, -4, -1]}
-        rotation={[0, Math.PI / 4, 0]}
-        onPointerOver={() => setHovered(true)} 
-        onPointerOut={() => setHovered(false)} 
-      >
-        <WorkDesk />
-      </group>
+            {/* Desk Group */}
+            <group
+              scale={4}
+              position={[-1, -4, -1]}
+              rotation={[0, Math.PI / 4, 0]}
+            >
+              <WorkDesk />
+            </group>
 
-      <Html position={[0, 2, 0]} center>
-        <div style={{ 
-          background: '#DAB1DA', 
-          borderRadius: '10px', 
-          width: '1000px',
-          fontSize: '100px',
-          padding: '5px', 
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-          marginTop: '2px',
-          opacity: fadeOut ? 0 : 1, // Set opacity based on fadeOut state
-          transition: 'opacity 2s ease-in-out', // Smooth transition
-        }}>
-          Welcome to Project page
-        </div>
-      </Html>
-{/* 
-      <group 
-        position={[-1, 0.85, -1]}
-        rotation={[0, 0, 0]}
-        scale={0.15}
-        onPointerOver={() => setHovered(true)} 
-        onPointerOut={() => setHovered(false)} 
-      >
-        <mesh scale={hovered ? 1.5 : 1}>
-          <Project1 />
-        </mesh>
-      </group> */}
-    </group>
+            <Html position={[0, 2, 0]} center>
+              <div style={{ 
+                background: '#DAB1DA', 
+                borderRadius: '10px', 
+                width: '1000px',
+                fontSize: '100px',
+                padding: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                marginTop: '2px',
+                opacity: fadeOut ? 0 : 1,
+                transition: 'opacity 2s ease-in-out', 
+              }}>
+                Welcome to Project page
+              </div>
+            </Html>
+          </group>
+
+        
+          <group 
+            position={[-1.5, 0.5, 1.5]}
+            rotation={[0,0.7, 0]}
+            scale={0.15}
+            onClick={handleClick} // Trigger scene change on click
+          >
+            {/* Project1 Mesh */}
+            <mesh 
+              scale={hovered ? 1.5 : 1}
+              onPointerOver={() => setHovered(true)} // Trigger hover when pointer is over the object
+              onPointerOut={() => setHovered(false)} // Trigger unhover when pointer leaves the object
+            >
+              <Project1 /> 
+              <boxGeometry args={[0, 0, 0]} />
+              <meshBasicMaterial transparent opacity={0} />
+            </mesh>
+
+            {/* Tooltip on hover */}
+            {hovered && (
+              <Html position={[0, 2, 0]} center>
+                <div style={{ 
+                  background: 'white', 
+                  borderRadius: '10px', 
+                  width: '200px',
+                  fontSize: '20px',
+                  padding: '5px', 
+                  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
+                }}>
+                  World Conquest Project made in Unity
+                </div>
+              </Html>
+            )}
+          </group>
+        </>
+      )}
+
+      {/* When the scene changes, load the new Project1 scene */}
+      {scene === "Project1" && <Project1_Scene />}
+    </>
   );
 };
