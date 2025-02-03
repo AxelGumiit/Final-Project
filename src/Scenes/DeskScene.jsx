@@ -62,7 +62,7 @@ export const DeskScene = () => {
       {/* Project1 Section */}
       <group position={[-2.5, -0.35, 0.5]} rotation={[0, 90.3, 0]} scale={0.015}>
         <mesh
-          scale={hoveredProject1 ? 1.5 : 1}
+          scale={hoveredProject1 ? 1.2 : 1}
           onPointerOver={() => setHoveredProject1(true)}
           onPointerOut={() => setHoveredProject1(false)}
           onClick={handleClickProject1}
@@ -74,7 +74,7 @@ export const DeskScene = () => {
 
         {/* Tooltip for Project1 */}
         {hoveredProject1 && (
-          <Html position={[0, 2, 0]} center>
+          <Html position={[0, 0, 0]} center>
             <div
               style={{
                 background: 'white',
