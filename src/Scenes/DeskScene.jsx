@@ -2,15 +2,14 @@ import { WorkDesk } from "../Items/desk";
 import { Environment, Html } from '@react-three/drei';
 import { useState, useEffect } from 'react';
 import { Project1 } from "../Items/gameConsole";
-import { Project1_Scene } from "./Project1_Scene";
+
 
 export const DeskScene = () => {
-  const [scene, setScene] = useState("DeskScene");
   const [hovered, setHovered] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const handleClick = () => {
-    setScene("Project1");
-  };
+    window.open("/Html_Pages/Project1.html", "_blank");
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,7 +21,7 @@ export const DeskScene = () => {
 
   return (
     <>
-      {scene === "DeskScene" && (
+    
         <>
           <group>
             <Environment preset="sunset" />
@@ -59,13 +58,14 @@ export const DeskScene = () => {
             position={[-1.5, 0.5, 1.5]}
             rotation={[0,0.7, 0]}
             scale={0.15}
-            onClick={handleClick} // Trigger scene change on click
+  
           >
             {/* Project1 Mesh */}
             <mesh 
               scale={hovered ? 1.5 : 1}
               onPointerOver={() => setHovered(true)} // Trigger hover when pointer is over the object
-              onPointerOut={() => setHovered(false)} // Trigger unhover when pointer leaves the object
+              onPointerOut={() => setHovered(false)} 
+              onClick={handleClick} 
             >
               <Project1 /> 
               <boxGeometry args={[0, 0, 0]} />
@@ -89,10 +89,6 @@ export const DeskScene = () => {
             )}
           </group>
         </>
-      )}
-
-      {/* When the scene changes, load the new Project1 scene */}
-      {scene === "Project1" && <Project1_Scene />}
     </>
   );
 };
