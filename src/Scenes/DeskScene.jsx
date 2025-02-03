@@ -68,7 +68,7 @@ export const DeskScene = () => {
           onClick={handleClickProject1}
         >
           <Game/>
-          <boxGeometry args={[0, 0, 0]} />
+          <boxGeometry args={[1, 1, 1]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
 
