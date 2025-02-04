@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { WorkDesk } from "../Items/desk";
 import { Environment, Html, OrbitControls } from '@react-three/drei';
 import { Game } from "../Items/Game";
 import { Chess } from "../Items/Chess";
@@ -45,7 +44,7 @@ export const DeskScene = () => {
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
             <group scale={4} position={[-1, -4, -1]} rotation={[0, Math.PI / 4, 0]}>
-              <WorkDesk />
+              {/* <WorkDesk /> */}
             </group>
 
             <Html position={[-2, 3, 0]} center>

@@ -11,6 +11,7 @@ const MOVEMENT_SPEED = 0.1;
 const MAX_VELOCITY = 2;
 
 export const AvatarController = () => {
+
   const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
   const leftPressed = useKeyboardControls((state) => state[Controls.left]);
   const rightPressed = useKeyboardControls((state) => state[Controls.right]);
