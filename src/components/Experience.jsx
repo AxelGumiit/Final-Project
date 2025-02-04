@@ -51,7 +51,7 @@ export const Experience = () => {
                 
                 <group
                   position={[2.5, 1, 2]} 
-                  rotation={[0, 89.52, 0]}
+                  rotation={[0, -89.52, 0]}
                   scale={0.3}
                   onClick={avatarVisible ? handleClick : undefined}
                   onPointerOver={() => setHoveredTable(true)} 

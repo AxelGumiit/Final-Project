@@ -44,15 +44,16 @@ export const DeskScene = () => {
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
             <group scale={4} position={[-1, -4, -1]} rotation={[0, Math.PI / 4, 0]}>
-              {/* <WorkDesk /> */}
+          
             </group>
 
-            <Html position={[-2, 3, 0]} center>
+            <Html position={[-5, 3, -5]} center>
               <img
                 src="/images/home.png"
                 alt="Return to Home"
                 style={{
                   width: '100px',
+                
                   height: '100px',
                   cursor: 'pointer',
                   boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
@@ -65,7 +66,7 @@ export const DeskScene = () => {
             <Html position={[0, 2, 0]} center>
               <div
                 style={{
-                  background: '#DAB1DA',
+                  
                   borderRadius: '10px',
                   width: '1000px',
                   fontSize: '100px',
@@ -81,8 +82,8 @@ export const DeskScene = () => {
             </Html>
           </group>
 
-          {/* Project1 Section */}
-          <group position={[-2.5, -0.35, 0.5]} rotation={[0, 90.3, 0]} scale={0.015}>
+         
+          {/* <group position={[-2.5, -0.35, 0.5]} rotation={[0, 90.3, 0]} scale={0.015}>
             <mesh
               scale={hoveredProject1 ? 1.1 : 1}
               onPointerOver={() => setHoveredProject1(true)}
@@ -94,7 +95,7 @@ export const DeskScene = () => {
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
 
-            {/* Tooltip for Project1 */}
+           
             {hoveredProject1 && (
               <Html position={[0, 0, 0]} center>
                 <div
@@ -111,10 +112,10 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group>
+          </group> */}
 
-          {/* Project2 Section */}
-          <group position={[0.5, -0.15, -2.5]} rotation={[0, 0.7, 0]} scale={1}>
+       
+          {/* <group position={[0.5, -0.15, -2.5]} rotation={[0, 0.7, 0]} scale={1}>
             <mesh
               scale={hoveredChess ? 1.2 : 1}
               onPointerOver={() => setHoveredChess(true)}
@@ -144,7 +145,7 @@ export const DeskScene = () => {
             )}
           </group>
 
-          {/* Project3 Section */}
+        
           <group position={[-1, -0.225, -1]} rotation={[0, 179.8, 0]} scale={0.5}>
             <mesh
               scale={hoveredBook ? 1.3 : 1}
@@ -173,7 +174,7 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group>
+          </group> */}
         </>
       )}
 
