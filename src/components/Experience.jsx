@@ -17,11 +17,12 @@ export const Experience = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    
+  
     <>
     {scene === "main" && (
       
         <>
+          <OrbitControls/>
           <Environment preset="sunset" />
           <ambientLight intensity={0.5} />
         
@@ -73,6 +74,16 @@ export const Experience = () => {
                 </group>
               </RigidBody>
 
+              <group   
+                position={[2, 0.5, -4]}
+                rotation={[0, 270.2, 0]}>
+                  
+                <RigidBody type="fixed" colliders="cuboid">
+                  <WorkDesk/>
+                </RigidBody>
+              
+              </group>
+                  
               <AvatarController />
             </group>
           </Physics>
