@@ -7,6 +7,7 @@ import { DeskScene } from "../Scenes/DeskScene.jsx";
 import { Room } from "../Items/room.jsx";
 import { Table } from "../Items/table.jsx";
 import { Bed } from "../Items/bed.jsx";
+import { Rug } from "../Items/rug.jsx";
 
 export const Experience = () => {
   const [scene, setScene] = useState("main");
@@ -32,7 +33,10 @@ export const Experience = () => {
       {scene === "main" && (
         <>
           <Environment preset="sunset" />
+          <OrbitControls/>
           <ambientLight intensity={0.5} />
+          <group position={[-2, -0.45,-2.8]} scale={0.5}><Rug/></group>
+
           <Physics>
             <group position-y={-1}>
               <RigidBody colliders={false} type="fixed" position-y={-0.5} friction={2}>
@@ -42,6 +46,7 @@ export const Experience = () => {
                   <Room />
                 </group>
 
+                
                 <RigidBody type="fixed" colliders="hull">
                   <CuboidCollider args={[0.5, 10, 10]} position={[-4, 5, 0]} />
                   <CuboidCollider args={[0.5, 10, 10]} position={[4, 5, 0]} />

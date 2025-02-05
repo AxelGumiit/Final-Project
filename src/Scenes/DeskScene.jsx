@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
-import { Game } from "../Items/Game";
-import { Chess } from "../Items/Chess";
-import { Book } from "../Items/Book";
+
 import { Experience } from "../components/Experience";
 
 export const DeskScene = () => {
