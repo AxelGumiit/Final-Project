@@ -62,7 +62,11 @@ export const Experience = () => {
                   onPointerOver={() => setHoveredTable(true)} 
                   onPointerOut={() => setHoveredTable(false)} 
                 >
-                  <RigidBody type="fixed" colliders="cuboid">
+                  <RigidBody
+                  type="fixed"
+                  colliders="cuboid"
+                  detection="continuous"
+                  >
                     <mesh scale={hoveredTable ? 1.2 : 1}>
                       <Table />
                       <boxGeometry args={[5, 5, 3]} />
