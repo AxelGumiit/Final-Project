@@ -23,11 +23,11 @@ export function Avatar({ isMoving, ...props }) {
           walkAction.reset()
           walkAction.play()
           walkAction.setLoop(THREE.LoopRepeat, Infinity)
-          walkAction.fadeIn(1.5)
+          walkAction.fadeIn(0.01)
         }
       } else {
           if (walkAction && walkAction.isRunning()) {
-            walkAction.fadeOut(0.5)
+            walkAction.fadeOut(1)
           }
         
       }
