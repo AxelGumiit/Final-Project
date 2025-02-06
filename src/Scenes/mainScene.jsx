@@ -1,9 +1,9 @@
 import { Environment, OrbitControls } from "@react-three/drei";
 import { useState } from "react";
 import { Physics, RigidBody, CylinderCollider, CuboidCollider } from "@react-three/rapier";
-import { AvatarController } from "./AvatarController.jsx";
+import { AvatarController } from "../components/AvatarController.jsx";
 import { Html } from '@react-three/drei';
-import { DeskScene } from "../Scenes/DeskScene.jsx";
+import { DeskScene } from "./DeskScene.jsx";
 import { Room } from "../Items/room.jsx";
 import { Table } from "../Items/table.jsx";
 import { Bed } from "../Items/bed.jsx";

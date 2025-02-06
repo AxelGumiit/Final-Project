@@ -2,7 +2,7 @@ import { KeyboardControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { Suspense, useMemo } from "react";
-import { Experience } from "./components/Experience";
+import { Experience } from "./Scenes/mainScene";
 
 export const Controls = {
   forward: "forward",

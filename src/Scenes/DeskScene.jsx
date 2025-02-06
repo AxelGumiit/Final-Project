@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
 
-import { Experience } from "../components/Experience";
+import { Experience } from "./mainScene";
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
