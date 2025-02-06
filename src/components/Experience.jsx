@@ -73,7 +73,7 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredTable ? 1.2 : 1}>
                       <Table />
-                      <boxGeometry args={[5, 5, 3]} />
+                      <boxGeometry args={[1, 4, 1]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
                     </mesh>
                   </RigidBody>
@@ -111,7 +111,7 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredTable2 ? 1.1 : 1}>
                       <Computer/>
-                      <boxGeometry args={[5, 5, 3]} />
+                      <boxGeometry args={[1, 1, 1]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
                     </mesh>
                   </RigidBody>
