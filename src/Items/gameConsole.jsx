@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.5.2 public/models/game.glb
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Game(props) {
+export function GameConsole(props) {
   const { nodes, materials } = useGLTF('models/game.glb')
   return (
     <group {...props} dispose={null}>

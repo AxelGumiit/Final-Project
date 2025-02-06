@@ -9,13 +9,23 @@ import { Table } from "../Items/table.jsx";
 import { Bed } from "../Items/bed.jsx";
 import { Rug } from "../Items/rug.jsx";
 import { Computer } from "../Items/Computer.jsx";
+import { GameMachine } from "../Items/gameMachine.jsx";
+import { GameScene } from "./gameScene.jsx";
+import { ComputerScene } from "./computerScene.jsx";
 
 export const Experience = () => {
   const [scene, setScene] = useState("main");
-  const handleClick = () => {
+  const handleClickDesk = () => {
     setScene("deskScene");
   };
+  const handleClickGame = () => {
+    window.open("/Html_Pages/SnakeGame.html", "_blank");
+  };
+  const handleClickComputer = () => {
+    setScene("computerScene");
+  };
   const [hoveredTable, setHoveredTable] = useState(false);
+  const [hoveredGame, setHoveredGame] = useState(false);
   const [hoveredTable2, setHoveredTable2] = useState(false);
   const [hoveredBed, setHoveredBed] = useState(false);
   const [isNight, setIsNight] = useState(false); 
@@ -62,7 +72,7 @@ export const Experience = () => {
                   position={[2.5, 1, 2]} 
                   rotation={[0, -89.52, 0]}
                   scale={0.3}
-                  onClick={avatarVisible ? handleClick : undefined}
+                  onClick={avatarVisible ? handleClickDesk : undefined}
                   onPointerOver={() => setHoveredTable(true)} 
                   onPointerOut={() => setHoveredTable(false)} 
                 >
@@ -101,6 +111,7 @@ export const Experience = () => {
                   position={[-3, 0.5, 2]} 
                   rotation={[0, 89.52, 0]}
                   scale={0.3}
+                  onClick={avatarVisible ? handleClickComputer : undefined}
                   onPointerOver={() => setHoveredTable2(true)} 
                   onPointerOut={() => setHoveredTable2(false)} 
                 >
@@ -127,6 +138,43 @@ export const Experience = () => {
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
                       }}>
                         CONTACT
+                      </div>
+                    </Html>
+                  )}
+                </group> 
+
+                {/* GameMachine */}
+              <group
+                  position={[-2.9, 0.5, -1]} 
+                  rotation={[0, 358.11, 0]}
+                  scale={0.4}
+                  onPointerOver={() => setHoveredGame(true)} 
+                  onPointerOut={() => setHoveredGame(false)} 
+                  onClick={avatarVisible ? handleClickGame : undefined}
+                >
+                  <RigidBody
+                  type="fixed"
+                  colliders="cuboid"
+                  detection="continuous"
+                  >
+                    <mesh scale={hoveredGame ? 1.1 : 1}>
+                      <GameMachine/>
+                      <boxGeometry args={[1, 1, 1]} />
+                      <meshStandardMaterial opacity={0} transparent={true} />
+                    </mesh>
+                  </RigidBody>
+
+                  {hoveredGame && (
+                    <Html position={[0, 2, 0]} center>
+                      <div style={{ 
+                        background: 'white', 
+                        borderRadius: '10px', 
+                        width: '100%',
+                        fontSize: '40px',
+                        padding: '5px', 
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
+                      }}>
+                        Play
                       </div>
                     </Html>
                   )}
@@ -171,6 +219,8 @@ export const Experience = () => {
       )}
 
       {scene === "deskScene" && <DeskScene />}
+      {scene === "gameScene" && <GameScene/>}
+      {scene === "computerScene" && <ComputerScene />}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Environment, Html, OrbitControls } from '@react-three/drei';
+import { Environment, Html } from '@react-three/drei';
 
 import { Experience } from "./mainScene";
 
