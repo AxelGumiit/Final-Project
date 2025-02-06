@@ -23,7 +23,7 @@ export const DeskScene = () => {
   };
 
   const handleReturnHome = () => {
-    setScene("main"); // Change to the main scene
+    setScene("main"); 
   };
 
   useEffect(() => {
