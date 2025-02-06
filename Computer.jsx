@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.5.2 public/models/computer.glb
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Computer(props) {
-  const { nodes, materials } = useGLTF('models/computer.glb')
+export function Model(props) {
+  const { nodes, materials } = useGLTF('/computer.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Mousepad001.geometry} material={materials['Mousepad.001']} position={[0, 2.982, 0.013]} rotation={[-Math.PI / 2, 0, 0]} scale={[377.753, 159.159, 1.322]} />
@@ -34,4 +34,4 @@ export function Computer(props) {
   )
 }
 
-useGLTF.preload('models/computer.glb')
+useGLTF.preload('/computer.glb')

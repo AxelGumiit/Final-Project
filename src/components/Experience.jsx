@@ -8,6 +8,7 @@ import { Room } from "../Items/room.jsx";
 import { Table } from "../Items/table.jsx";
 import { Bed } from "../Items/bed.jsx";
 import { Rug } from "../Items/rug.jsx";
+import { Computer } from "../Items/Computer.jsx";
 
 export const Experience = () => {
   const [scene, setScene] = useState("main");
@@ -15,6 +16,7 @@ export const Experience = () => {
     setScene("deskScene");
   };
   const [hoveredTable, setHoveredTable] = useState(false);
+  const [hoveredTable2, setHoveredTable2] = useState(false);
   const [hoveredBed, setHoveredBed] = useState(false);
   const [isNight, setIsNight] = useState(false); 
   const [avatarVisible, setAvatarVisible] = useState(true); // State for avatar visibility
@@ -54,6 +56,8 @@ export const Experience = () => {
                   <CuboidCollider args={[10, 10, 0.5]} position={[0, 5, 4]} />
                 </RigidBody>
                 
+
+                {/* Desk object */}
                 <group
                   position={[2.5, 1, 2]} 
                   rotation={[0, -89.52, 0]}
@@ -79,10 +83,11 @@ export const Experience = () => {
                       <div style={{ 
                         background: 'white', 
                         borderRadius: '10px', 
-                        width: '100px',
-                        fontSize: '20px',
+                        width: '100%',
+                        fontSize: '40px',
                         padding: '5px', 
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                        whiteSpace: 'nowrap'
                       }}>
                         Check Out the Project
                       </div>
@@ -90,7 +95,45 @@ export const Experience = () => {
                   )}
                 </group> 
               </RigidBody>
+                  
+              {/* Computer object */}
+              <group
+                  position={[-3, 0.5, 2]} 
+                  rotation={[0, 89.52, 0]}
+                  scale={0.3}
+                  onPointerOver={() => setHoveredTable2(true)} 
+                  onPointerOut={() => setHoveredTable2(false)} 
+                >
+                  <RigidBody
+                  type="fixed"
+                  colliders="cuboid"
+                  detection="continuous"
+                  >
+                    <mesh scale={hoveredTable2 ? 1.1 : 1}>
+                      <Computer/>
+                      <boxGeometry args={[5, 5, 3]} />
+                      <meshStandardMaterial opacity={0} transparent={true} />
+                    </mesh>
+                  </RigidBody>
 
+                  {hoveredTable2 && (
+                    <Html position={[0, 2, 0]} center>
+                      <div style={{ 
+                        background: 'white', 
+                        borderRadius: '10px', 
+                        width: '100%',
+                        fontSize: '40px',
+                        padding: '5px', 
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
+                      }}>
+                        CONTACT
+                      </div>
+                    </Html>
+                  )}
+                </group> 
+
+                
+              {/* Bed object */}    
               <group   
                 position={[2.6, 0.5, -1.9]} 
                 rotation={[0, -89.53, 0]}
@@ -118,7 +161,7 @@ export const Experience = () => {
               <color attach="background" args={isNight ? ['black'] : ['#87CEEB']} /> {/* Dark blue for night, sky blue for day */}
               
               {avatarVisible && (
-                <group position-y={0}>
+                <group position={[2,0,-1.9]}>
                   <AvatarController />
                 </group>
               )}
