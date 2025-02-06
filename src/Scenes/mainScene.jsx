@@ -83,8 +83,10 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredTable ? 1.2 : 1}>
                       <Table />
-                      <boxGeometry args={[1, 4, 1]} />
+                      <mesh position={[0,1.5,0]}>
+                      <boxGeometry args={[8, 3, 3]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
+                      </mesh>
                     </mesh>
                   </RigidBody>
 
@@ -122,8 +124,11 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredTable2 ? 1.1 : 1}>
                       <Computer/>
-                      <boxGeometry args={[1, 1, 1]} />
+                      <mesh position={[0,1.5,0]}>
+                      <boxGeometry args={[8, 3, 4]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
+                      </mesh>
+                      
                     </mesh>
                   </RigidBody>
 
@@ -159,8 +164,10 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredGame ? 1.1 : 1}>
                       <GameMachine/>
-                      <boxGeometry args={[1, 1, 1]} />
+                      <mesh position={[0,2.8,0]}>
+                      <boxGeometry args={[2, 5, 3]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
+                      </mesh>
                     </mesh>
                   </RigidBody>
 
