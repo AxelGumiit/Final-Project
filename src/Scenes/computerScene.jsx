@@ -1,6 +1,6 @@
 import { Experience } from "./mainScene";
 import { useState} from 'react';
-import { Environment, Html } from '@react-three/drei';
+import { Environment, Html, OrbitControls } from '@react-three/drei';
 
 export const ComputerScene = () => {
 

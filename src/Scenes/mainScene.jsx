@@ -10,7 +10,6 @@ import { Bed } from "../Items/bed.jsx";
 import { Rug } from "../Items/rug.jsx";
 import { Computer } from "../Items/Computer.jsx";
 import { GameMachine } from "../Items/gameMachine.jsx";
-import { GameScene } from "./gameScene.jsx";
 import { ComputerScene } from "./computerScene.jsx";
 
 export const Experience = () => {
@@ -227,7 +226,6 @@ export const Experience = () => {
       )}
 
       {scene === "deskScene" && <DeskScene />}
-      {scene === "gameScene" && <GameScene/>}
       {scene === "computerScene" && <ComputerScene />}
     </>
   );
