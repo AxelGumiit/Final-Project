@@ -91,9 +91,9 @@ export const Experience = () => {
                   </RigidBody>
 
                   {hoveredTable && (
-                    <Html position={[0, 2, 0]} center>
+                    <Html position={[0, 6, 0]} center>
                       <div style={{ 
-                        background: 'white', 
+                         background: 'gold', 
                         borderRadius: '10px', 
                         width: '100%',
                         fontSize: '40px',
@@ -124,8 +124,8 @@ export const Experience = () => {
                   >
                     <mesh scale={hoveredTable2 ? 1.1 : 1}>
                       <Computer/>
-                      <mesh position={[0,1.5,0]}>
-                      <boxGeometry args={[8, 3, 4]} />
+                      <mesh position={[0,2.5,0]}>
+                      <boxGeometry args={[8, 5, 4]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
                       </mesh>
                       
@@ -133,9 +133,9 @@ export const Experience = () => {
                   </RigidBody>
 
                   {hoveredTable2 && (
-                    <Html position={[0, 2, 0]} center>
+                    <Html position={[0, 6, 0]} center>
                       <div style={{ 
-                        background: 'white', 
+                        background: 'gold',  
                         borderRadius: '10px', 
                         width: '100%',
                         fontSize: '40px',
@@ -172,16 +172,17 @@ export const Experience = () => {
                   </RigidBody>
 
                   {hoveredGame && (
-                    <Html position={[0, 2, 0]} center>
+                    <Html position={[0, 7, 0]} center>
                       <div style={{ 
-                        background: 'white', 
+                        background: 'gold', 
                         borderRadius: '10px', 
                         width: '100%',
                         fontSize: '40px',
                         padding: '5px', 
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                        whiteSpace: 'nowrap'
                       }}>
-                        Play
+                        Play Game
                       </div>
                     </Html>
                   )}
