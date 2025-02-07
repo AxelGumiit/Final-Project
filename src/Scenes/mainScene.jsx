@@ -95,7 +95,7 @@ export const Experience = () => {
                          background: 'gold', 
                         borderRadius: '10px', 
                         width: '100%',
-                        fontSize: '40px',
+                        fontSize: '20px',
                         padding: '5px', 
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
                         whiteSpace: 'nowrap'
@@ -137,11 +137,11 @@ export const Experience = () => {
                         background: 'gold',  
                         borderRadius: '10px', 
                         width: '100%',
-                        fontSize: '40px',
+                        fontSize: '20px',
                         padding: '5px', 
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
                       }}>
-                        CONTACT
+                        Contact
                       </div>
                     </Html>
                   )}
@@ -176,7 +176,7 @@ export const Experience = () => {
                         background: 'gold', 
                         borderRadius: '10px', 
                         width: '100%',
-                        fontSize: '40px',
+                        fontSize: '20px',
                         padding: '5px', 
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
                         whiteSpace: 'nowrap'
