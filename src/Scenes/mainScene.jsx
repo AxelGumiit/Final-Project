@@ -12,6 +12,7 @@ import { Computer } from "../Items/Computer.jsx";
 import { GameMachine } from "../Items/gameMachine.jsx";
 import { ComputerScene } from "./computerScene.jsx";
 
+
 export const Experience = () => {
   const [scene, setScene] = useState("main");
   const handleClickDesk = () => {

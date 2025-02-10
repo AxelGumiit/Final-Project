@@ -4,6 +4,7 @@ import { Experience } from "./mainScene";
 import { Desk } from '../Items/desk';
 import { GameConsole } from '../Items/gameConsole';
 import { Chess } from '../Items/Chess';
+import { Book } from '../Items/book';
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
@@ -153,13 +154,14 @@ export const DeskScene = () => {
           </group>
 
         
-          <group position={[-1, -0.225, -1]} rotation={[0, 179.8, 0]} scale={0.5}>
+          <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.3}>
             <mesh
               scale={hoveredBook ? 1.3 : 1}
               onPointerOver={() => setHoveredBook(true)}
               onPointerOut={() => setHoveredBook(false)}
               onClick={handleClickBook}
             >
+              <Book/>
               <boxGeometry args={[1, 1, 1]} />
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
