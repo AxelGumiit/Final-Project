@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Environment, Html } from '@react-three/drei';
-
+import { Environment, Html, OrbitControls } from '@react-three/drei';
 import { Experience } from "./mainScene";
+import { Desk } from '../Items/desk';
+import { GameConsole } from '../Items/gameConsole';
+import { Chess } from '../Items/Chess';
+import { Computer } from '../Items/Computer';
+import { Book } from '../Items/NoteBook';
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
@@ -39,6 +43,8 @@ export const DeskScene = () => {
       {scene === "DeskScene" && ( 
         <>
           <group>
+            <OrbitControls/>
+            
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
             <group scale={4} position={[-1, -4, -1]} rotation={[0, Math.PI / 4, 0]}>
@@ -80,22 +86,27 @@ export const DeskScene = () => {
             </Html>
           </group>
 
+          <group scale={0.6} position={[-1, -1, 2]} rotation={[0, 90.65, 0]}>
+
+            <Desk/>
+          </group>
+
          
-          {/* <group position={[-2.5, -0.35, 0.5]} rotation={[0, 90.3, 0]} scale={0.015}>
+         <group position={[-2.5, 0.8, 1.5]} rotation={[0, 89.05, 0]} scale={0.01}>
             <mesh
-              scale={hoveredProject1 ? 1.1 : 1}
+              scale={hoveredProject1 ? 1.2 : 1}
               onPointerOver={() => setHoveredProject1(true)}
               onPointerOut={() => setHoveredProject1(false)}
               onClick={handleClickProject1}
             >
-              <Game />
+              <GameConsole/>
               <boxGeometry args={[1, 1, 1]} />
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
 
            
             {hoveredProject1 && (
-              <Html position={[0, 0, 0]} center>
+              <Html position={[0, 100, 0]} center>
                 <div
                   style={{
                     background: 'white',
@@ -110,17 +121,17 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group> */}
+          </group> 
 
        
-          {/* <group position={[0.5, -0.15, -2.5]} rotation={[0, 0.7, 0]} scale={1}>
+          <group position={[-1.5, 0.89, 2]} rotation={[0, -0.5, 0]} scale={0.5}>
             <mesh
               scale={hoveredChess ? 1.2 : 1}
               onPointerOver={() => setHoveredChess(true)}
               onPointerOut={() => setHoveredChess(false)}
               onClick={handleClickChess}
             >
-              <Chess />
+              <Chess/>
               <boxGeometry args={[1, 1, 1]} />
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
@@ -151,7 +162,7 @@ export const DeskScene = () => {
               onPointerOut={() => setHoveredBook(false)}
               onClick={handleClickBook}
             >
-              <Book />
+              <Book/>
               <boxGeometry args={[1, 1, 1]} />
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
@@ -172,7 +183,7 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group> */}
+          </group> 
         </>
       )}
 

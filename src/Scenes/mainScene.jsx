@@ -204,6 +204,8 @@ export const Experience = () => {
                     <boxGeometry args={[1, 1, 1]} />
                     <meshBasicMaterial transparent opacity={0} />
                   </mesh>
+
+                  
                 </RigidBody>
               </group>
               
@@ -213,7 +215,7 @@ export const Experience = () => {
                 position={[5, 5, 5]} 
                 color={isNight ? 'skyblue' : 'yellow'} 
               />
-              <color attach="background" args={isNight ? ['black'] : ['#87CEEB']} /> {/* Dark blue for night, sky blue for day */}
+              <color attach="background" args={isNight ? ['black'] : ['#87CEEB']} />
               
               {avatarVisible && (
                 <group position={[2,0,-1.9]}>
