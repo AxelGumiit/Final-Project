@@ -4,8 +4,6 @@ import { Experience } from "./mainScene";
 import { Desk } from '../Items/desk';
 import { GameConsole } from '../Items/gameConsole';
 import { Chess } from '../Items/Chess';
-import { Computer } from '../Items/Computer';
-import { Book } from '../Items/NoteBook';
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
@@ -162,7 +160,6 @@ export const DeskScene = () => {
               onPointerOut={() => setHoveredBook(false)}
               onClick={handleClickBook}
             >
-              <Book/>
               <boxGeometry args={[1, 1, 1]} />
               <meshBasicMaterial transparent opacity={0} />
             </mesh>
