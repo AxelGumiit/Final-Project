@@ -21,6 +21,9 @@ export const Experience = () => {
   const handleClickGame = () => {
     window.open("/Html_Pages/SnakeGame.html", "_blank");
   };
+  const handleQuitGame = () => {
+    setScene("mainScene");
+  };
   const handleClickComputer = () => {
     setScene("computerScene");
   };
