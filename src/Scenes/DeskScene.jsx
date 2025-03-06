@@ -190,7 +190,7 @@ export const DeskScene = () => {
           </group> 
 
 
-          <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.3}>
+          {/* <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.3}>
             <mesh
               scale={hoveredLaptop ? 1.3 : 1}
               onPointerOver={() => setHoveredLaptop(true)}
@@ -218,7 +218,7 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group> 
+          </group>  */}
         </>
       )}
 
