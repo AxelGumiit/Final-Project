@@ -1,4 +1,4 @@
-import { Experience } from "./mainScene";
+import { Experience } from "./MainScene";
 import { useState} from 'react';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
 

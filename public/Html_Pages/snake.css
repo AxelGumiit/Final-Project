@@ -3,13 +3,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: aqua;
+    background-image: url(images/snake.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    border: 1vh solid black;
 }
+
 
 canvas {
     border: 2px solid black;

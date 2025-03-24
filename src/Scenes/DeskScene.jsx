@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
-import { Experience } from "./mainScene";
-import { Desk } from '../Items/desk';
-import { GameConsole } from '../Items/gameConsole';
+import { Experience } from "./MainScene";
+import { Desk } from '../Items/Desk';
+import { GameConsole } from '../Items/GameConsole';
 import { Chess } from '../Items/Chess';
-import { Book } from '../Items/book';
-import { Laptop } from '../Items/laptop';
+import { Book } from '../Items/Book';
+import { Laptop } from '../Items/Laptop';
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
@@ -24,10 +24,10 @@ export const DeskScene = () => {
   };
 
   const handleClickBook = () => {
-    window.open("/Html_Pages/Project3.html", "_blank");
+    window.open("/Html_Pages/Project4.html", "_blank");
   };
   const handleClickLaptop = () => {
-    window.open("/Html_Pages/Project4.html", "_blank");
+    window.open("/Html_Pages/Project3.html", "_blank");
   };
 
   const handleReturnHome = () => {
@@ -159,7 +159,7 @@ export const DeskScene = () => {
           </group>
 
         
-          <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.3}>
+          <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.2}>
             <mesh
               scale={hoveredBook ? 1.3 : 1}
               onPointerOver={() => setHoveredBook(true)}
@@ -190,12 +190,12 @@ export const DeskScene = () => {
           </group> 
 
 
-          {/* <group position={[-0.5, 0.8, 2.5]} rotation={[0, 179.8, 0]} scale={0.3}>
+           <group position={[0.5, 0.8, 3]} rotation={[0, 100, 0]} scale={0.2}>
             <mesh
               scale={hoveredLaptop ? 1.3 : 1}
               onPointerOver={() => setHoveredLaptop(true)}
               onPointerOut={() => setHoveredLaptop(false)}
-              onClick={handleClickBook}
+              onClick={handleClickLaptop}
             >
               <Laptop/>
               <boxGeometry args={[1, 1, 1]} />
@@ -218,7 +218,7 @@ export const DeskScene = () => {
                 </div>
               </Html>
             )}
-          </group>  */}
+          </group> 
         </>
       )}
 

@@ -4,47 +4,69 @@ import { Physics, RigidBody, CylinderCollider, CuboidCollider } from "@react-thr
 import { AvatarController } from "../components/AvatarController.jsx";
 import { Html } from '@react-three/drei';
 import { DeskScene } from "./DeskScene.jsx";
-import { Room } from "../Items/room.jsx";
-import { Table } from "../Items/table.jsx";
-import { Bed } from "../Items/bed.jsx";
-import { Rug } from "../Items/rug.jsx";
+import { Room } from "../Items/Room.jsx";
+import { Table } from "../Items/Table.jsx";
+import { Bed } from "../Items/Bed.jsx";
+import { Rug } from "../Items/Rug.jsx";
 import { Computer } from "../Items/Computer.jsx";
-import { GameMachine } from "../Items/gameMachine.jsx";
-import { ComputerScene } from "./computerScene.jsx";
+import { GameMachine } from "../Items/GameMachine.jsx";
+import { ComputerScene } from "./ComputerScene.jsx";
+
 
 
 export const Experience = () => {
+  const [hoveredButton, setHoveredButton] = useState(false);
   const [scene, setScene] = useState("main");
-  const handleClickDesk = () => {
-    setScene("deskScene");
-  };
-  const handleClickGame = () => {
-    window.open("/Html_Pages/SnakeGame.html", "_blank");
-  };
-  const handleQuitGame = () => {
-    setScene("mainScene");
-  };
-  const handleClickComputer = () => {
-    setScene("computerScene");
-  };
   const [hoveredTable, setHoveredTable] = useState(false);
   const [hoveredGame, setHoveredGame] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [hoveredTable2, setHoveredTable2] = useState(false);
   const [hoveredBed, setHoveredBed] = useState(false);
   const [isNight, setIsNight] = useState(false); 
-  const [avatarVisible, setAvatarVisible] = useState(true); // State for avatar visibility
+  const [avatarVisible, setAvatarVisible] = useState(true); 
+  const [infoContent, setInfoContent] = useState("")
+  const [showControls, setShowControls] = useState(false);
 
   const toggleDayNight = () => {
     setIsNight(!isNight);
   };
 
-
   const handleAvatarClick = () => {
     setAvatarVisible(!avatarVisible); 
-  }
+  };
+
+  const handleClickDesk = () => {
+    setScene("deskScene");
+  };
+
+  const handleClickGame = () => {
+    window.open("/Html_Pages/SnakeGame.html", "_blank");
+  };
+
+  const handleClickComputer = () => {
+    setScene("computerScene");
+  };
+
+  const toggleControls = () => {
+    setShowInfo(!showInfo);
+    if (!showInfo) {
+      setInfoContent("The controls for the Avatar are: <strong>WASD</strong> for movement<br/><br/><strong>Hover and Click</strong>  on the objects to Interact<br/><br/> This Scene replicates my room");  
+
+
+    }
+  };
+
+  const closeInfoPanel = () => {
+    setShowInfo(false);
+    setScene("main"); 
+  };
+
 
   return (
     <>
+
+
+
       {scene === "main" && (
         <>
           <Environment preset="sunset" />
@@ -228,11 +250,80 @@ export const Experience = () => {
               )}
             </group>
           </Physics>
+                {/* 3D Interactive Mesh Button */}
+      <group
+        position={[-4, 2, -3]}
+        onPointerOver={() => setHoveredButton(true)}
+        onPointerOut={() => setHoveredButton(false)}
+        onClick={toggleControls}
+      >
+        <mesh position={[1,0.5,-0.5]}>
+          <boxGeometry args={[1, 0.5, 0.2]} />
+          
+          <meshStandardMaterial color={hoveredButton ? "lightblue" : "green"} />
+          {hoveredButton && (
+            <Html position={[0, 0.8, 0]} center>
+              <div
+                style={{
+                  background: "gold",
+                  borderRadius: "10px",
+                  padding: "5px",
+                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                  fontSize: "20px",
+                }}
+              >
+                Toggle For Information
+              </div>
+            </Html>
+          )}
+        </mesh>
+      </group>
+
+      {/* Information Panel (Popup) */}
+      {showInfo && (
+        <Html position={[0, 0, 0]} center>
+          <div
+            style={{
+              background: "rgba(0, 0, 0, 0.7)",
+              color: "white",
+              borderRadius: "10px",
+              padding: "20px",
+              width: "100vh",
+              height: "50vh",
+              textAlign: "center",
+              fontSize:"40px",
+              boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)",
+            }}
+          >
+            <h2>Information</h2>
+                <div
+                  style={{ fontSize: "30px" }}
+                  dangerouslySetInnerHTML={{ __html: infoContent }} // Render the HTML content
+                />
+            <button
+              onClick={closeInfoPanel}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "red",
+                marginTop: "20vh",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                fontSize: "16px",
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </Html>
+      )}e
         </>
       )}
 
       {scene === "deskScene" && <DeskScene />}
       {scene === "computerScene" && <ComputerScene />}
+      
     </>
   );
 };
