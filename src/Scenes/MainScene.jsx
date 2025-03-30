@@ -25,7 +25,6 @@ export const Experience = () => {
   const [isNight, setIsNight] = useState(false); 
   const [avatarVisible, setAvatarVisible] = useState(true); 
   const [infoContent, setInfoContent] = useState("")
-  const [showControls, setShowControls] = useState(false);
 
   const toggleDayNight = () => {
     setIsNight(!isNight);
@@ -237,7 +236,7 @@ export const Experience = () => {
               
               <ambientLight intensity={isNight ? -1.5 : 1} /> 
               <directionalLight 
-                intensity={isNight ? 0.5 : 1} 
+                intensity={isNight ? 0.1 : 1} 
                 position={[5, 5, 5]} 
                 color={isNight ? 'skyblue' : 'yellow'} 
               />
@@ -285,39 +284,53 @@ export const Experience = () => {
           <div
             style={{
               background: "rgba(0, 0, 0, 0.7)",
-              color: "white",
-              borderRadius: "10px",
-              padding: "20px",
-              width: "100vh",
+              color: "#00ffcc",  /* Neon color */
+              borderRadius: "15px",
+              padding: "30px",
+              width: "60vw",  /* Adjusted for better responsive design */
               height: "50vh",
               textAlign: "center",
-              fontSize:"40px",
-              boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)",
+              fontSize: "36px",
+              boxShadow: "0 0 25px rgba(0, 255, 204, 0.8)", /* Glowing neon effect */
+              fontFamily: "'Orbitron', sans-serif",
+              transform: "scale(1.05)",  /* Slight zoom effect */
+              transition: "transform 0.3s ease-in-out",
             }}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} /* Hover zoom */
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'} /* Reset zoom */
           >
-            <h2>Information</h2>
-                <div
-                  style={{ fontSize: "30px" }}
-                  dangerouslySetInnerHTML={{ __html: infoContent }} // Render the HTML content
-                />
+            <h2 style={{ fontSize: "48px", marginBottom: "20px", color: "#ff00ff" }}>Information</h2>
+            <div
+              style={{
+                fontSize: "28px",
+                lineHeight: "1.6",
+                color: "#00ffff", /* Neon cyan */
+              }}
+              dangerouslySetInnerHTML={{ __html: infoContent }} // Render the HTML content
+            />
             <button
               onClick={closeInfoPanel}
               style={{
-                padding: "10px 20px",
-                backgroundColor: "red",
-                marginTop: "20vh",
+                padding: "15px 25px",
+                backgroundColor: "#ff0055", /* Neon red */
+                marginTop: "30px",
                 color: "white",
                 border: "none",
-                borderRadius: "5px",
+                borderRadius: "10px",
                 cursor: "pointer",
-                fontSize: "16px",
+                fontSize: "18px",
+                boxShadow: "0 0 15px rgba(255, 0, 85, 0.6)", /* Glowing effect */
+                transition: "all 0.3s ease-in-out",
               }}
+              onMouseEnter={(e) => e.target.style.boxShadow = '0 0 30px rgba(255, 0, 85, 1)'}  /* Glowing hover */
+              onMouseLeave={(e) => e.target.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.6)'}  /* Reset glow */
             >
               Close
             </button>
           </div>
         </Html>
-      )}e
+
+      )}
         </>
       )}
 

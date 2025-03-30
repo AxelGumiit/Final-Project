@@ -1,9 +1,9 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(images/snake.jpg);
+    background-image: url(images/snake.jpg); /* A space-themed background */
     background-repeat: no-repeat; 
     background-size: cover;
     display: flex;
@@ -11,15 +11,16 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    border: 1vh solid black;
+    border: 1vh solid rgba(0, 255, 255, 0.7); /* Neon border */
 }
 
-
+/* Canvas */
 canvas {
-    border: 2px solid black;
-    background-color: #f0f0f0;
+    border: 2px solid rgba(0, 255, 255, 0.7); /* Neon border */
+    background-color: rgba(20, 20, 20, 0.9); /* Dark background */
     display: block;
     margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Glowing border effect */
 }
 
 /* Game Over Screen */
@@ -30,76 +31,92 @@ canvas {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #0ff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Glowing effect */
+    font-family: 'Orbitron', sans-serif;
 }
 
-/* Game Over Screen - Final Score */
 #gameOverScreen h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ff0055; /* Neon pink for emphasis */
 }
 
 #gameOverScreen p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #00ff00; /* Neon green for score */
 }
 
 /* Restart Button */
 #restartBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #28a745;
+    padding: 12px 20px;
+    background-color: #00ff00;
     border: none;
-    color: white;
+    color: black;
+    font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
 }
 
 #restartBtn:hover {
-    background-color: #218838;
+    background-color: #00cc00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.9);
 }
 
 /* Start Game UI */
 #startGameUI {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    background: linear-gradient(135deg, #6a0dad, #ff007f); /* Purple to pink gradient */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7); /* Neon glowing effect */
     width: 100%;
     max-width: 400px;
     margin-top: 50px;
+    text-align: center;
+    color: #fff;
 }
 
 #startBtn, #quitBtn {
-    background-color: #ffffff;
+    background-color: #222;
     border: none;
     padding: 15px;
     width: 100%;
     margin: 10px 0;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;                                                                  
+    color: #0ff;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 #startBtn {
-    background-color: #4caf50;
-    color: white;
+    background-color: black;
 }
 
 #quitBtn {
-    background-color: #f44336;
-    color: white;
+    background-color: #ff3333;
 }
 
-#startBtn:hover {
-    background-color: #45a049;
+#startBtn:hover, #quitBtn:hover {
+    background-color: #222;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
 
-#quitBtn:hover {
-    background-color: #e53935;
+/* Leaderboard UI */
+#leaderboard {
+    text-align: center;
+    color: #0ff;
+    display: none;
+}
+
+/* Glow effect for grid lines */
+canvas {
+    background-color: #0d0d0d;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }

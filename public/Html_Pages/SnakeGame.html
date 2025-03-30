@@ -8,20 +8,27 @@
 </head>
 <body>
 
-        <canvas id="board"></canvas>
-            
-        <!-- Game Over Screen -->
-        <div id="gameOverScreen">
-            <h1>Game Over</h1>
-            <p>Your Score: <span id="finalScore">0</span></p>
-            <button id="restartBtn">Restart</button>
-        </div>
+    <canvas id="board"></canvas>
 
-        <!-- Start Game and Quit Button UI -->
-        <div id="startGameUI" style="display: block;">
-            <button id="startBtn">Start Game</button>
+    <!-- Start Game UI -->
+    <div id="startGameUI" style="display: block;">
+        <button id="startBtn">Start Game</button>
+    </div>
 
-        </div>=
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" style="display: none;">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <button id="restartBtn">Restart</button>
+    </div>
+
+    <!-- Leaderboard UI -->
+    <div id="leaderboard" style="display: none;">
+        <h2>Leaderboard</h2>
+        <ol id="leaderboardList">
+            <!-- Top scores will be added here -->
+        </ol>
+    </div>
 
     <script src="snake.js"></script>
 </body>
