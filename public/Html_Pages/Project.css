@@ -27,8 +27,8 @@ p {
 }
 
 img {
-    width: 80%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 100vh;
     border: 5px solid #0ff;
     border-radius: 15px;
     margin-top: 20px;
@@ -56,5 +56,5 @@ a {
     text-decoration: none;
 }
 .chess img{
-    width: 50vH;
+    width: 60vH;
 }

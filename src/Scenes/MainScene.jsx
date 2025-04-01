@@ -11,6 +11,7 @@ import { Rug } from "../Items/Rug.jsx";
 import { Computer } from "../Items/Computer.jsx";
 import { GameMachine } from "../Items/GameMachine.jsx";
 import { ComputerScene } from "./ComputerScene.jsx";
+import ContactMenu from "../components/ContactMenu.jsx";
 
 
 
@@ -69,9 +70,10 @@ export const Experience = () => {
       {scene === "main" && (
         <>
           <Environment preset="sunset" />
-          <OrbitControls/>
           <ambientLight intensity={0.5} />
           <group position={[-2, -0.45,-2.8]} scale={0.5}><Rug/></group>
+          <group><ContactMenu/></group>
+
 
           <Physics>
             <group position-y={-1}>
@@ -256,10 +258,10 @@ export const Experience = () => {
         onPointerOut={() => setHoveredButton(false)}
         onClick={toggleControls}
       >
-        <mesh position={[1,0.5,-0.5]}>
+        <mesh position={[1,0.5,-0.5]}> 
           <boxGeometry args={[1, 0.5, 0.2]} />
           
-          <meshStandardMaterial color={hoveredButton ? "lightblue" : "green"} />
+          <meshStandardMaterial color={hoveredButton ? "gold" : "black"} />
           {hoveredButton && (
             <Html position={[0, 0.8, 0]} center>
               <div
