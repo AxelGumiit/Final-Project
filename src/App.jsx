@@ -5,7 +5,6 @@ import { Suspense, useState, useMemo } from "react";
 import { Experience } from "./Scenes/MainScene";
 import { Html, useProgress } from "@react-three/drei";
 
-
 // Define controls
 export const Controls = {
   forward: "forward",
@@ -80,7 +79,7 @@ function App() {
   );
 
   return (
-      <div style={{ position: "relative", width: "100vw", height: "100vh", backgroundColor: '#1e1e1e'}}>
+      <div style={{ position: "relative", width: "100vw", height: "100vh", backgroundColor: '#121212', overflow: 'hidden' }}>
       {!startLoading && (
         <div 
           style={{
@@ -93,6 +92,7 @@ function App() {
             fontSize: "2rem",
             fontFamily: "'Orbitron', sans-serif",
             textShadow: "0 0 10px #00ffff, 0 0 20px #ff00ff",
+            animation: 'fadeIn 2s ease-in-out',
           }}
         >
           <h1
@@ -100,7 +100,8 @@ function App() {
               fontSize: "2.5rem", 
               marginBottom: "20px", 
               color: "#00ffcc", 
-              textShadow: "0 0 15px rgba(0, 255, 204, 0.8)"
+              textShadow: "0 0 15px rgba(0, 255, 204, 0.8)",
+              transition: "all 0.3s ease-in-out",
             }}
           >
             Welcome to My 3D Portfolio
@@ -110,10 +111,11 @@ function App() {
               fontSize: "1.5rem", 
               marginBottom: "30px", 
               color: "#fff", 
-              textShadow: "0 0 10px rgba(0, 255, 204, 0.5)"
+              textShadow: "0 0 10px rgba(0, 255, 204, 0.5)",
+              letterSpacing: "1px",
             }}
           >
-            Dive into my world of creative projects and 3D experiences. Explore my work in an immersive, interactive 3D environment. 
+            Dive into my world of creative projects and 3D experiences.
           </p>
           <button
             onClick={handleStartClick}
@@ -126,7 +128,7 @@ function App() {
               borderRadius: "10px", 
               cursor: "pointer", 
               boxShadow: "0 0 20px rgba(255, 0, 85, 0.7)",
-              transition: "all 0.3s ease-in-out"
+              transition: "all 0.3s ease-in-out",
             }}
             onMouseEnter={(e) => e.target.style.boxShadow = "0 0 30px rgba(255, 0, 85, 1)"}
             onMouseLeave={(e) => e.target.style.boxShadow = "0 0 20px rgba(255, 0, 85, 0.7)"}
@@ -140,7 +142,7 @@ function App() {
         <KeyboardControls map={map}>
           <Canvas shadows camera={{ position: [-9, 5, 15], fov: 25 }}>
             {/* Futuristic Background */}
-            <color attach="background" args={["#1e1e1e"]} /> 
+            <color attach="background" args={["#121212"]} /> 
 
             {/* Light and reflections */}
             <ambientLight intensity={1} color="#00ffcc" />
@@ -153,7 +155,6 @@ function App() {
             </Suspense>
           </Canvas>
         </KeyboardControls>
-
       )}
     </div>
   );

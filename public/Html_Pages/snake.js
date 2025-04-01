@@ -10,16 +10,27 @@ var snakeDirection = 'right';
 var snakeBody = [{x: snakeX, y: snakeY}];
 var foodX, foodY;
 var gameInterval;
+var score = 0; // Variable to track the current score
+var highScore = localStorage.getItem('highScore') || 0; // Retrieve high score from localStorage or set to 0 if not found
+
 var gameOverScreen = document.getElementById("gameOverScreen");
 var finalScoreElement = document.getElementById("finalScore");
 var startGameUI = document.getElementById('startGameUI');
 const startBtn = document.getElementById('startBtn');
-const quitBtn = document.getElementById('quitBtn');
+const leaderboardBtn = document.getElementById('leaderboardBtn');
+const restartBtn = document.getElementById('restartBtn');
+const closeLeaderboardBtn = document.getElementById('closeLeaderboardBtn');
+const leaderboard = document.getElementById('leaderboard');
+const leaderboardList = document.getElementById('leaderboardList');
+const currentScoreElement = document.getElementById('currentScore');
 
 window.onload = function() {
     startGameUI.style.display = 'block'; // Initially show the start game UI
     gameOverScreen.style.display = 'none'; // Initially hide the game over screen
+    leaderboard.style.display = 'none'; // Initially hide leaderboard screen
     document.getElementById('restartBtn').addEventListener('click', restartGame);
+    leaderboardBtn.addEventListener('click', showLeaderboard);
+    closeLeaderboardBtn.addEventListener('click', hideLeaderboard);
 };
 
 startBtn.addEventListener('click', () => {
@@ -27,13 +38,13 @@ startBtn.addEventListener('click', () => {
     startGame();
 });
 
-
 function startGame() {
     board = document.getElementById("board");
     board.height = rows * blockSize;
     board.width = cols * blockSize;
     context = board.getContext("2d");
 
+    score = 0; // Reset score when starting a new game
     spawnFood();
     gameInterval = setInterval(update, 100);
     window.addEventListener('keydown', changeDirection);
@@ -51,6 +62,7 @@ function update() {
     drawGrid();
     drawSnake();
     drawFood();
+    updateScore(); // Update the score display during the game
 }
 
 function moveSnake() {
@@ -65,6 +77,7 @@ function moveSnake() {
   
     if (newHead.x === foodX && newHead.y === foodY) {
         spawnFood();
+        score++; // Increment the score when the snake eats food
     } else {
         snakeBody.pop();
     }
@@ -133,29 +146,49 @@ function drawFood() {
 
 function gameOver() {
     clearInterval(gameInterval);
-    finalScoreElement.textContent = snakeBody.length - 1;
     
-    // Hide the game canvas when the game is over
-    board.style.display = 'block';
+    // Update high score if the current score is higher than the saved high score
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('highScore', highScore); // Save the high score to localStorage
+    }
+
+    finalScoreElement.textContent = score;
     
     // Show the Game Over screen and Start UI
     gameOverScreen.style.display = "block";
     startGameUI.style.display = 'none';
+    updateLeaderboard(); // Update the leaderboard with the latest high score
 }
 
 function restartGame() {
-    // Reset game state
     snakeX = blockSize * 5;
     snakeY = blockSize * 5;
     snakeDirection = 'right';
     snakeBody = [{x: snakeX, y: snakeY}];
     spawnFood();
 
-    // Hide the Game Over screen and Start UI
     gameOverScreen.style.display = "none";
     startGameUI.style.display = 'none';
 
-    // Show the game canvas and restart the game
     board.style.display = 'block';
     gameInterval = setInterval(update, 100);
+}
+
+function updateScore() {
+    currentScoreElement.textContent = "Score: " + score; // Update current score on the screen
+}
+
+function showLeaderboard() {
+    leaderboard.style.display = 'block';
+    leaderboardList.innerHTML = `<li>High Score: ${highScore}</li>`; // Show high score in leaderboard
+}
+
+function hideLeaderboard() {
+    leaderboard.style.display = 'none';
+}
+
+function updateLeaderboard() {
+    // Update the leaderboard UI to show the high score
+    leaderboardList.innerHTML = `<li>High Score: ${highScore}</li>`;
 }

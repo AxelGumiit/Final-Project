@@ -40,7 +40,7 @@ export const Experience = () => {
   };
 
   const handleClickGame = () => {
-    window.open("/Html_Pages/SnakeGame.html", "_blank");
+    window.open("/Html_Pages/SnakeGame.html");
   };
 
   const handleClickComputer = () => {
@@ -68,7 +68,7 @@ export const Experience = () => {
 
 
       {scene === "main" && (
-        <>
+        <>a
           <Environment preset="sunset" />
           <ambientLight intensity={0.5} />
           <group position={[-2, -0.45,-2.8]} scale={0.5}><Rug/></group>
@@ -118,15 +118,21 @@ export const Experience = () => {
 
                   {hoveredTable && (
                     <Html position={[0, 6, 0]} center>
-                      <div style={{ 
-                         background: 'gold', 
-                        borderRadius: '10px', 
-                        width: '100%',
-                        fontSize: '20px',
-                        padding: '5px', 
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                        whiteSpace: 'nowrap'
-                      }}>
+                      <div
+                        style={{
+                          background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                          borderRadius: "15px",
+                          width: "250px",
+                          fontSize: "22px",
+                          padding: "15px",
+                          color: "#fff",
+                          textAlign: "center",
+                          fontFamily: "'Orbitron', sans-serif",
+                          boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                          animation: "pulse 2s infinite alternate",
+                          backdropFilter: "blur(10px)",
+                        }}
+                      >
                         Check Out the Project
                       </div>
                     </Html>
@@ -160,22 +166,29 @@ export const Experience = () => {
 
                   {hoveredTable2 && (
                     <Html position={[0, 6, 0]} center>
-                      <div style={{ 
-                        background: 'gold',  
-                        borderRadius: '10px', 
-                        width: '100%',
-                        fontSize: '20px',
-                        padding: '5px', 
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'
-                      }}>
+                      <div
+                          style={{
+                            background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                            borderRadius: "15px",
+                            width: "250px",
+                            fontSize: "22px",
+                            padding: "15px",
+                            color: "#fff",
+                            textAlign: "center",
+                            fontFamily: "'Orbitron', sans-serif",
+                            boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                            animation: "pulse 2s infinite alternate",
+                            backdropFilter: "blur(10px)",
+                          }}
+                        >
                         Contact
                       </div>
                     </Html>
                   )}
                 </group> 
 
-                {/* GameMachine */}
-              <group
+              {/* GameMachine */}
+                <group
                   position={[-2.9, 0.5, -1]} 
                   rotation={[0, 358.11, 0]}
                   scale={0.4}
@@ -184,35 +197,42 @@ export const Experience = () => {
                   onClick={avatarVisible ? handleClickGame : undefined}
                 >
                   <RigidBody
-                  type="fixed"
-                  colliders="cuboid"
-                  detection="continuous"
+                    type="fixed"
+                    colliders="cuboid"
+                    detection="continuous"
                   >
                     <mesh scale={hoveredGame ? 1.1 : 1}>
                       <GameMachine/>
                       <mesh position={[0,2.8,0]}>
-                      <boxGeometry args={[2, 5, 3]} />
-                      <meshStandardMaterial opacity={0} transparent={true} />
+                        <boxGeometry args={[2, 5, 3]} />
+                        <meshStandardMaterial opacity={0} transparent={true} />
                       </mesh>
                     </mesh>
                   </RigidBody>
 
                   {hoveredGame && (
                     <Html position={[0, 7, 0]} center>
-                      <div style={{ 
-                        background: 'gold', 
-                        borderRadius: '10px', 
-                        width: '100%',
-                        fontSize: '20px',
-                        padding: '5px', 
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                        whiteSpace: 'nowrap'
-                      }}>
+                      <div
+                        style={{
+                          background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                          borderRadius: "15px",
+                          width: "250px",
+                          fontSize: "22px",
+                          padding: "15px",
+                          color: "#fff",
+                          textAlign: "center",
+                          fontFamily: "'Orbitron', sans-serif",
+                          boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                          animation: "pulse 2s infinite alternate",
+                          backdropFilter: "blur(10px)",
+                        }}
+                      >
                         Play Game
                       </div>
                     </Html>
                   )}
-                </group> 
+                </group>
+
 
                 
               {/* Bed object */}    
@@ -266,11 +286,17 @@ export const Experience = () => {
             <Html position={[0, 0.8, 0]} center>
               <div
                 style={{
-                  background: "gold",
-                  borderRadius: "10px",
-                  padding: "5px",
-                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                  fontSize: "20px",
+                  background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                  borderRadius: "15px",
+                  width: "250px",
+                  fontSize: "22px",
+                  padding: "15px",
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "'Orbitron', sans-serif",
+                  boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                  animation: "pulse 2s infinite alternate",
+                  backdropFilter: "blur(10px)",
                 }}
               >
                 Toggle For Information

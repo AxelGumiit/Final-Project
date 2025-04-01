@@ -10,9 +10,13 @@
 
     <canvas id="board"></canvas>
 
+    <!-- Display Current Score -->
+    <div id="currentScore">Score: 0</div>
+
     <!-- Start Game UI -->
     <div id="startGameUI" style="display: block;">
         <button id="startBtn">Start Game</button>
+        <button id="leaderboardBtn">Leaderboard</button> <!-- Added Leaderboard Button -->
     </div>
 
     <!-- Game Over Screen -->
@@ -26,8 +30,9 @@
     <div id="leaderboard" style="display: none;">
         <h2>Leaderboard</h2>
         <ol id="leaderboardList">
-            <!-- Top scores will be added here -->
+            <!-- Leaderboard List will go here -->
         </ol>
+        <button id="closeLeaderboardBtn">Close</button>
     </div>
 
     <script src="snake.js"></script>

@@ -17,23 +17,24 @@ export const DeskScene = () => {
   const [scene, setScene] = useState("DeskScene");
 
   const handleClickProject1 = () => {
-    window.open("/Html_Pages/Project1.html", "_blank");
+    window.open("/Html_Pages/Project1.html");
   };
 
   const handleClickChess = () => {
-    window.open("/Html_Pages/Project2.html", "_blank");
+    window.open("/Html_Pages/Project2.html")
   };
 
   const handleClickBook = () => {
-    window.open("/Html_Pages/Project4.html", "_blank");
+    window.open("/Html_Pages/Project4.html");
   };
   const handleClickLaptop = () => {
-    window.open("/Html_Pages/Project3.html", "_blank");
+    window.open("/Html_Pages/Project3.html");
   };
 
   const handleReturnHome = () => {
     setScene("main");
   };
+
 
   return (
     <>
@@ -42,42 +43,56 @@ export const DeskScene = () => {
           <group>
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
-            <group position={[-3,3,0]}><ContactMenu/></group>
+            <group position={[-4,3,0]}><ContactMenu/></group>
 
 
             {/* Fixed home button that won't be affected by OrbitControls */}
-            <Html 
-              position={[-12, 9, -3]} 
-              style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1000 }}>
+            <Html position={[-11, 8, -3]}>
+          
               <img
                 src="/images/home.png"
                 alt="Return to Home"
                 style={{
-                  width: '100px',
-                  backgroundColor:'white',
-                  height: '100px',
-                  cursor: 'pointer',
-                  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  borderRadius: '10px',
+                  width: "100px",
+                  height: "100px",
+                  cursor: "pointer",
+                  backgroundColor: "transparent", 
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)", 
+                  border: "2px solid rgba(0, 255, 255, 0.8)", 
+                  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out", 
                 }}
                 onClick={handleReturnHome}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "scale(1.1)"; // Slight zoom-in effect on hover
+                  e.target.style.boxShadow = "0 0 25px rgba(0, 255, 255, 1)"; // Enhanced glowing effect
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "scale(1)"; // Revert back to original size
+                  e.target.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.6)"; // Revert glowing effect
+                }}
               />
             </Html>
 
             <Html position={[0, 5, 0]} center>
-              <div
-                style={{
-                  borderRadius: '10px',
-                  width: '1000px',
-                  fontSize: '100px',
-                  padding: '5px',
-                  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  marginTop: '2px',
-                  color: 'white',
-                }}
-              >
-                Welcome to Project page
-              </div>
+            <div
+              style={{
+                borderRadius: '20px',
+                width: '1000px',
+                fontSize: '100px',
+                padding: '20px',
+                marginTop: '2px',
+                color: 'white',
+                background: 'linear-gradient(45deg, #00bcd4, #8e24aa)',
+                textAlign: 'center',
+                fontFamily: "'Orbitron', sans-serif",
+                boxShadow: '0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4)',
+                animation: 'glowAnimation 2s infinite alternate',
+                backdropFilter: 'blur(8px)',
+                transform: 'scale(1.05)',
+              }}
+            >
+              Welcome to the Project Page
+            </div>
             </Html>
           </group>
 
@@ -102,20 +117,26 @@ export const DeskScene = () => {
             </mesh>
 
             {hoveredProject1 && (
-              <Html position={[0, 100, 0]} center>
-                <div
-                  style={{
-                    background: 'white',
-                    borderRadius: '10px',
-                    width: '200px',
-                    fontSize: '20px',
-                    padding: '5px',
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  }}
-                >
-                  World Conquest Project made in Unity
-                </div>
-              </Html>
+            <Html position={[0, 100, 0]} center>
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                  borderRadius: "15px",
+                  width: "250px",
+                  fontSize: "22px",
+                  padding: "15px",
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "'Orbitron', sans-serif",
+                  boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                  animation: "pulse 2s infinite alternate",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                World Conquest Project made in Unity
+              </div>
+            </Html>
+        
             )}
           </group>
 
@@ -134,19 +155,24 @@ export const DeskScene = () => {
 
             {hoveredChess && (
               <Html position={[0, 2, 0]} center>
-                <div
-                  style={{
-                    background: 'white',
-                    borderRadius: '10px',
-                    width: '200px',
-                    fontSize: '20px',
-                    padding: '5px',
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  }}
-                >
-                  Chess Game in C++
-                </div>
-              </Html>
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                  borderRadius: "15px",
+                  width: "250px",
+                  fontSize: "22px",
+                  padding: "15px",
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "'Orbitron', sans-serif",
+                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                  animation: "pulse 2s infinite alternate",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                Chess Game in C++
+              </div>
+            </Html>
             )}
           </group>
 
@@ -164,16 +190,21 @@ export const DeskScene = () => {
             </mesh>
 
             {hoveredBook && (
-              <Html position={[0, 2, 0]} center>
+              <Html position={[0, 4, 0]} center>
                 <div
                   style={{
-                    background: 'white',
-                    borderRadius: '10px',
-                    width: '200px',
-                    fontSize: '20px',
-                    padding: '5px',
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  }}
+                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                  borderRadius: "15px",
+                  width: "250px",
+                  fontSize: "22px",
+                  padding: "15px",
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "'Orbitron', sans-serif",
+                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                  animation: "pulse 2s infinite alternate",
+                  backdropFilter: "blur(10px)",
+                   }}
                 >
                   Book project
                 </div>
@@ -195,16 +226,21 @@ export const DeskScene = () => {
             </mesh>
 
             {hoveredLaptop && (
-              <Html position={[0, 2, 0]} center>
-                <div
+              <Html position={[0, 5, 0]} center>
+                 <div
                   style={{
-                    background: 'white',
-                    borderRadius: '10px',
-                    width: '200px',
-                    fontSize: '20px',
-                    padding: '5px',
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-                  }}
+                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                  borderRadius: "15px",
+                  width: "250px",
+                  fontSize: "22px",
+                  padding: "15px",
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "'Orbitron', sans-serif",
+                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                  animation: "pulse 2s infinite alternate",
+                  backdropFilter: "blur(10px)",
+                   }}
                 >
                   3D Website
                 </div>

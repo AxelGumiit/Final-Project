@@ -3,15 +3,13 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(images/snake.jpg); /* A space-themed background */
-    background-repeat: no-repeat; 
-    background-size: cover;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    border: 1vh solid rgba(0, 255, 255, 0.7); /* Neon border */
+    color: #00ff00;
 }
 
 /* Canvas */
@@ -21,6 +19,17 @@ canvas {
     display: block;
     margin: 20px auto;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Glowing border effect */
+}
+
+/* Display Current Score during Gameplay */
+#currentScore {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #00ff00; /* Neon green for emphasis */
+    font-family: 'Orbitron', sans-serif;
+    z-index: 10; /* Make sure it’s above the game canvas */
 }
 
 /* Game Over Screen */
@@ -51,7 +60,7 @@ canvas {
 }
 
 /* Restart Button */
-#restartBtn {
+#restartBtn, #homeBtn {
     padding: 12px 20px;
     background-color: #00ff00;
     border: none;
@@ -63,9 +72,19 @@ canvas {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
 }
 
-#restartBtn:hover {
+#restartBtn:hover, #homeBtn:hover {
     background-color: #00cc00;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.9);
+}
+
+/* Home Button */
+#homeBtn {
+    background-color: #ff0055;
+}
+
+#homeBtn:hover {
+    background-color: #cc0044;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.9);
 }
 
 /* Start Game UI */
@@ -81,29 +100,21 @@ canvas {
     color: #fff;
 }
 
-#startBtn, #quitBtn {
+#startBtn, #leaderboardBtn {
     background-color: #222;
     border: none;
     padding: 15px;
     width: 100%;
     margin: 10px 0;
     border-radius: 8px;
-    font-size: 1.2rem;                                                                  
+    font-size: 1.2rem;
     color: #0ff;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
-#startBtn {
-    background-color: black;
-}
-
-#quitBtn {
-    background-color: #ff3333;
-}
-
-#startBtn:hover, #quitBtn:hover {
+#startBtn:hover, #leaderboardBtn:hover {
     background-color: #222;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
@@ -113,10 +124,83 @@ canvas {
     text-align: center;
     color: #0ff;
     display: none;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
 }
 
-/* Glow effect for grid lines */
-canvas {
-    background-color: #0d0d0d;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+#leaderboard h2 {
+    font-size: 2rem;
+    color: #00ff00;
+}
+
+#leaderboard ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboard li {
+    font-size: 1.5rem;
+    color: #ff0055; /* Neon pink for emphasis */
+}
+
+#closeLeaderboardBtn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff3333;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+#closeLeaderboardBtn:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+    #currentScore {
+        font-size: 1.2rem;
+    }
+
+    #gameOverScreen h1 {
+        font-size: 2rem;
+    }
+
+    #gameOverScreen p {
+        font-size: 1.2rem;
+    }
+
+    #startGameUI {
+        width: 80%;
+        max-width: 350px;
+    }
+
+    #startBtn, #leaderboardBtn {
+        font-size: 1rem;
+    }
+
+    #leaderboard {
+        width: 250px;
+    }
+
+    #leaderboard h2 {
+        font-size: 1.5rem;
+    }
+
+    #leaderboard li {
+        font-size: 1.2rem;
+    }
 }

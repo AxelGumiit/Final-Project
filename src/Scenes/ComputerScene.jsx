@@ -1,16 +1,24 @@
 import { Experience } from "./MainScene";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Environment, Html, PerspectiveCamera } from "@react-three/drei";
 import ContactMenu from "../components/ContactMenu";
 
 export const ComputerScene = () => {
   const [scene, setScene] = useState("computerScene");
-  
+
   // Form State
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState(null);
-  const [messageCount, setMessageCount] = useState(0); // Track messages sent
-  const maxMessages = 5; // Set the message limit
+  const maxMessages = 5;
+
+  // Load message count from localStorage
+  const [messageCount, setMessageCount] = useState(() => {
+    return Number(localStorage.getItem("messageCount")) || 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("messageCount", messageCount);
+  }, [messageCount]);
 
   const handleReturnHome = () => {
     setScene("main");
@@ -23,13 +31,12 @@ export const ComputerScene = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if message limit is reached
     if (messageCount >= maxMessages) {
       setStatus("limitReached");
       return;
     }
 
-    const response = await fetch("https://formspree.io/f/mjkyabyo ", {
+    const response = await fetch("https://formspree.io/f/mjkyabyo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -37,8 +44,8 @@ export const ComputerScene = () => {
 
     if (response.ok) {
       setStatus("success");
-      setFormData({ name: "", email: "", message: "" }); // Clear form
-      setMessageCount((prevCount) => prevCount + 1); // Increment message count
+      setFormData({ name: "", email: "", message: "" });
+      setMessageCount((prevCount) => prevCount + 1);
     } else {
       setStatus("error");
     }
@@ -55,9 +62,7 @@ export const ComputerScene = () => {
             <group position={[0, 5, 0]}>
               <ContactMenu />
             </group>
-
-            {/* Home Button */}
-            <Html position={[-19, 12, -3]} style={{ position: "fixed", top: "20px", left: "20px", zIndex: 1000 }}>
+            <Html position={[-18, 12, -3]} style={{ position: "fixed", top: "20px", left: "20px", zIndex: 1000 }}>
               <img
                 src="/images/home.png"
                 alt="Return to Home"
@@ -65,15 +70,23 @@ export const ComputerScene = () => {
                   width: "100px",
                   height: "100px",
                   cursor: "pointer",
-                  backgroundColor: "white",
-                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                  borderRadius: "10px",
+                  backgroundColor: "transparent", 
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)", 
+                  border: "2px solid rgba(0, 255, 255, 0.8)", 
+                  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out", 
                 }}
                 onClick={handleReturnHome}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "scale(1.1)"; 
+                  e.target.style.boxShadow = "0 0 25px rgba(0, 255, 255, 1)"; 
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "scale(1)"; 
+                  e.target.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.6)"; 
+                }}
               />
             </Html>
 
-            {/* Contact Form */}
             <Html position={[0, 2, 0]} center>
               <div
                 style={{
@@ -104,7 +117,6 @@ export const ComputerScene = () => {
                   Contact Us
                 </h2>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit} style={{ width: "80%", display: "flex", flexDirection: "column", gap: "15px" }}>
                   <input
                     type="text"
@@ -137,12 +149,10 @@ export const ComputerScene = () => {
                   </button>
                 </form>
 
-                {/* Form Submission Status Messages */}
                 {status === "success" && <p style={{ color: "#00F2FF", marginTop: "10px" }}>Message sent successfully!</p>}
                 {status === "error" && <p style={{ color: "red", marginTop: "10px" }}>Failed to send message. Try again.</p>}
                 {status === "limitReached" && <p style={{ color: "orange", marginTop: "10px" }}>Message limit reached. Please try later.</p>}
 
-                {/* Display remaining messages */}
                 <p style={{ color: "#00F2FF", marginTop: "15px" }}>
                   Messages Left: {maxMessages - messageCount}
                 </p>
