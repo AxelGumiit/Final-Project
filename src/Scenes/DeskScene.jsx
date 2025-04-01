@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Environment, Html, OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import { useState} from 'react';
+import homeIcon from "../assets/home.png"
+import { Environment, Html, PerspectiveCamera } from '@react-three/drei';
 import { Experience } from "./MainScene";
 import { Desk } from '../Items/Desk';
 import { GameConsole } from '../Items/GameConsole';
@@ -49,8 +50,8 @@ export const DeskScene = () => {
             {/* Fixed home button that won't be affected by OrbitControls */}
             <Html position={[-11, 8, -3]}>
           
-              <img
-                src="/images/home.png"
+            <img 
+                src={homeIcon} 
                 alt="Return to Home"
                 style={{
                   width: "100px",

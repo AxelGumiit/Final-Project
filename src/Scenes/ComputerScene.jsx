@@ -2,6 +2,7 @@ import { Experience } from "./MainScene";
 import { useState, useEffect } from "react";
 import { Environment, Html, PerspectiveCamera } from "@react-three/drei";
 import ContactMenu from "../components/ContactMenu";
+import homeIcon from "../assets/home.png"
 
 export const ComputerScene = () => {
   const [scene, setScene] = useState("computerScene");
@@ -64,7 +65,7 @@ export const ComputerScene = () => {
             </group>
             <Html position={[-18, 12, -3]} style={{ position: "fixed", top: "20px", left: "20px", zIndex: 1000 }}>
               <img
-                src="/images/home.png"
+                src={homeIcon} 
                 alt="Return to Home"
                 style={{
                   width: "100px",
