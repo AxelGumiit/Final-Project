@@ -9,30 +9,31 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
 }
 
 /* Header Styling */
 header {
-    font-size: 2em;
+    font-size: 2.5em;
     color: #0ff;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.6);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Paragraph Styling */
 p {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #bbb;
-    line-height: 1.5;
-    margin: 10px;
+    line-height: 1.8;
+    margin: 20px;
+    max-width: 600px;
 }
 
 /* Image Styling */
 img {
     width: 100%;
-    max-width: 100vh;
+    max-width: 90vh;
     border: 5px solid #0ff;
     border-radius: 15px;
     margin-top: 20px;
@@ -69,46 +70,47 @@ a {
     text-decoration: none;
 }
 
-/* Specific Styling for Chess Images */
-.chess img {
-    width: 60vH;
-    margin-top: 20px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-}
-
-/* Container for the entire project content */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Add a slight box-shadow for a floating effect */
-.container > * {
-    margin: 20px 0;
-}
-
-/* Section Styling (Optional for grouping content better) */
+/* Content Wrapper */
 .content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    padding: 40px;
 }
 
-/* Text Section Styling */
+/* Text Section */
 .text {
     flex: 1;
     text-align: left;
+    max-width: 600px;
 }
 
-/* Animation for smooth transition on hover */
-@keyframes hoverScale {
-    0% {
-        transform: scale(1);
+/* Ensure Images Fit Nicely */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-    100% {
-        transform: scale(1.05);
+
+    .text {
+        text-align: center;
     }
 }
