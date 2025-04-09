@@ -117,12 +117,12 @@ export const Experience = () => {
                   </RigidBody>
 
                   {hoveredTable && (
-                    <Html position={[0, 6, 0]} center>
+                    <Html position={[0, 8, 0]} center>
                       <div
                         style={{
                           background: "linear-gradient(135deg, #6a0dad, #ff007f)",
                           borderRadius: "15px",
-                          width: "250px",
+                          width: "27.44vh",
                           fontSize: "22px",
                           padding: "15px",
                           color: "#fff",
@@ -157,7 +157,7 @@ export const Experience = () => {
                     <mesh scale={hoveredTable2 ? 1.1 : 1}>
                       <Computer/>
                       <mesh position={[0,2.5,0]}>
-                      <boxGeometry args={[8, 5, 4]} />
+                      <boxGeometry args={[8, 2, 4]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
                       </mesh>
                       
@@ -165,12 +165,12 @@ export const Experience = () => {
                   </RigidBody>
 
                   {hoveredTable2 && (
-                    <Html position={[0, 6, 0]} center>
+                    <Html position={[0, 9, 0]} center>
                       <div
                           style={{
                             background: "linear-gradient(135deg, #6a0dad, #ff007f)",
                             borderRadius: "15px",
-                            width: "250px",
+                            width: "27.44vh",
                             fontSize: "22px",
                             padding: "15px",
                             color: "#fff",
@@ -189,9 +189,9 @@ export const Experience = () => {
 
               {/* GameMachine */}
                 <group
-                  position={[-2.9, 0.5, -1]} 
-                  rotation={[0, 358.11, 0]}
-                  scale={0.4}
+                  position={[0, 0.5, -3]} 
+                  rotation={[0, 105.3, 0]}
+                  scale={1}
                   onPointerOver={() => setHoveredGame(true)} 
                   onPointerOut={() => setHoveredGame(false)} 
                   onClick={avatarVisible ? handleClickGame : undefined}
@@ -200,23 +200,26 @@ export const Experience = () => {
                     type="fixed"
                     colliders="cuboid"
                     detection="continuous"
+                    position={[0, 0, 0]}  
+                    rotation={[0, 100.5, 0]} 
+                    scale={[0.4, 0.4, 0.4]} 
                   >
                     <mesh scale={hoveredGame ? 1.1 : 1}>
                       <GameMachine/>
                       <mesh position={[0,2.8,0]}>
-                        <boxGeometry args={[2, 5, 3]} />
+                        <boxGeometry args={[2, 5, 2.5]} />
                         <meshStandardMaterial opacity={0} transparent={true} />
                       </mesh>
                     </mesh>
                   </RigidBody>
 
                   {hoveredGame && (
-                    <Html position={[0, 7, 0]} center>
+                    <Html position={[0, 3, 0]} center>
                       <div
                         style={{
                           background: "linear-gradient(135deg, #6a0dad, #ff007f)",
                           borderRadius: "15px",
-                          width: "250px",
+                          width: "27.44vh",
                           fontSize: "22px",
                           padding: "15px",
                           color: "#fff",
@@ -248,7 +251,7 @@ export const Experience = () => {
                 <RigidBody type="fixed" colliders="cuboid">
                   <mesh scale={hoveredBed ? 1.2 : 1}>
                     <Bed />
-                    <boxGeometry args={[1, 1, 1]} />
+                    <boxGeometry args={[0, 0, 0]} />
                     <meshBasicMaterial transparent opacity={0} />
                   </mesh>
 
@@ -288,7 +291,7 @@ export const Experience = () => {
                 style={{
                   background: "linear-gradient(135deg, #6a0dad, #ff007f)",
                   borderRadius: "15px",
-                  width: "250px",
+                  width: "27.44vh",
                   fontSize: "22px",
                   padding: "15px",
                   color: "#fff",
@@ -315,32 +318,32 @@ export const Experience = () => {
               color: "#00ffcc",  /* Neon color */
               borderRadius: "15px",
               padding: "30px",
-              width: "60vw",  /* Adjusted for better responsive design */
+              width: "60vw", 
               height: "50vh",
               textAlign: "center",
               fontSize: "36px",
               boxShadow: "0 0 25px rgba(0, 255, 204, 0.8)", /* Glowing neon effect */
               fontFamily: "'Orbitron', sans-serif",
-              transform: "scale(1.05)",  /* Slight zoom effect */
+              transform: "scale(1.05)",  
               transition: "transform 0.3s ease-in-out",
             }}
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} /* Hover zoom */
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'} /* Reset zoom */
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} 
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
           >
             <h2 style={{ fontSize: "48px", marginBottom: "20px", color: "#ff00ff" }}>Information</h2>
             <div
               style={{
                 fontSize: "28px",
                 lineHeight: "1.6",
-                color: "#00ffff", /* Neon cyan */
+                color: "#00ffff", 
               }}
-              dangerouslySetInnerHTML={{ __html: infoContent }} // Render the HTML content
+              dangerouslySetInnerHTML={{ __html: infoContent }} 
             />
             <button
               onClick={closeInfoPanel}
               style={{
                 padding: "15px 25px",
-                backgroundColor: "#ff0055", /* Neon red */
+                backgroundColor: "#ff0055", 
                 marginTop: "30px",
                 color: "white",
                 border: "none",
@@ -364,7 +367,7 @@ export const Experience = () => {
 
       {scene === "deskScene" && <DeskScene />}
       {scene === "computerScene" && <ComputerScene />}
-      
+
     </>
   );
 };

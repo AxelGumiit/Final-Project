@@ -8,15 +8,15 @@ import { Chess } from '../Items/Chess';
 import { Book } from '../Items/Book';
 import { Laptop } from '../Items/Laptop';
 import ContactMenu from '../components/ContactMenu';
+import ResponsiveObject from '../components/ResponsiveObject';
 
 export const DeskScene = () => {
   const [hoveredProject1, setHoveredProject1] = useState(false);
   const [hoveredChess, setHoveredChess] = useState(false);
   const [hoveredLaptop, setHoveredLaptop] = useState(false)
   const [hoveredBook, setHoveredBook] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
   const [scene, setScene] = useState("DeskScene");
-
+``
   const handleClickProject1 = () => {
     window.open("/Html_Pages/Project1.html");
   };
@@ -44,20 +44,19 @@ export const DeskScene = () => {
           <group>
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
-            <group position={[-4,3,0]}><ContactMenu/></group>
+            <group position={[-3,3,0]}><ContactMenu/></group>
 
 
-            {/* Fixed home button that won't be affected by OrbitControls */}
             <Html position={[-11, 8, -3]}>
           
             <img 
                 src={homeIcon} 
                 alt="Return to Home"
                 style={{
-                  width: "100px",
-                  height: "100px",
+                  width: "10.97vh",
+                  height: "10.97vh",
                   cursor: "pointer",
-                  backgroundColor: "transparent", 
+                  backgroundColor: "white", 
                   boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)", 
                   border: "2px solid rgba(0, 255, 255, 0.8)", 
                   transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out", 
@@ -77,11 +76,11 @@ export const DeskScene = () => {
             <Html position={[0, 5, 0]} center>
             <div
               style={{
-                borderRadius: '20px',
-                width: '1000px',
-                fontSize: '100px',
-                padding: '20px',
-                marginTop: '2px',
+                borderRadius: '20',
+                width: ' 109.77vh',
+                fontSize: '10.97vh',
+                padding: '20',
+                marginTop: '2',
                 color: 'white',
                 background: 'linear-gradient(45deg, #00bcd4, #8e24aa)',
                 textAlign: 'center',
@@ -100,12 +99,25 @@ export const DeskScene = () => {
           {/* Perspective Camera */}
           <PerspectiveCamera makeDefault position={[0, 3, 5]} fov={75} near={0.1} far={1000} />
 
-          <group scale={0.6} position={[0, 0, 2]} rotation={[0, 0, 0]}>
+          
+          <ResponsiveObject
+            widePosition={[0, 0, 2]}
+            narrowPosition={[0, 0, 1.5]} 
+            wideScale={[0.6, 0.6, 0.6]}
+            narrowScale={[0.45, 0.45, 0.45]} 
+            rotation={[0, 0, 0]}
+          >
             <Desk />
-          </group>
+          </ResponsiveObject>
 
           {/* Game Console Interaction */}
-          <group position={[0.5, 1.79, 2]} rotation={[0, 89.5, 0]} scale={0.01}>
+          <ResponsiveObject
+            widePosition={[0.5, 1.79, 2]}
+            narrowPosition={[0.3, 1.79, 2]}
+            wideScale={[0.01, 0.01, 0.01]}
+            narrowScale={[0.008, 0.008, 0.008]}
+            rotation={[0, 89.5, 0]}
+          >
             <mesh
               scale={hoveredProject1 ? 1.2 : 1}
               onPointerOver={() => setHoveredProject1(true)}
@@ -118,31 +130,37 @@ export const DeskScene = () => {
             </mesh>
 
             {hoveredProject1 && (
-            <Html position={[0, 100, 0]} center>
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #6a0dad, #ff007f)",
-                  borderRadius: "15px",
-                  width: "250px",
-                  fontSize: "22px",
-                  padding: "15px",
-                  color: "#fff",
-                  textAlign: "center",
-                  fontFamily: "'Orbitron', sans-serif",
-                  boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
-                  animation: "pulse 2s infinite alternate",
-                  backdropFilter: "blur(10px)",
-                }}
-              >
-                World Conquest Project made in Unity
-              </div>
-            </Html>
-        
+              <Html position={[0, 100, 0]} center>
+                <div
+                  style={{
+                    background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                    borderRadius: "15px",
+                    width: "27.44vh",
+                    fontSize: "22px",
+                    padding: "15px",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "'Orbitron', sans-serif",
+                    boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                    animation: "pulse 2s infinite alternate",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  World Conquest Project made in Unity
+                </div>
+              </Html>
             )}
-          </group>
+          </ResponsiveObject>
 
           {/* Chess Interaction */}
-          <group position={[-1.8,1.89, 2]} rotation={[0, -0.5, 0]} scale={0.5}>
+
+          <ResponsiveObject
+            widePosition={[-1.8, 1.89, 2]}
+            narrowPosition={[-1.2, 1.89, 2]} // Shift closer to center for small screens
+            wideScale={[0.5, 0.5, 0.5]}
+            narrowScale={[0.4, 0.4, 0.4]}
+            rotation={[0, -0.5, 0]}
+          >
             <mesh
               scale={hoveredChess ? 1.2 : 1}
               onPointerOver={() => setHoveredChess(true)}
@@ -156,29 +174,36 @@ export const DeskScene = () => {
 
             {hoveredChess && (
               <Html position={[0, 2, 0]} center>
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
-                  borderRadius: "15px",
-                  width: "250px",
-                  fontSize: "22px",
-                  padding: "15px",
-                  color: "#fff",
-                  textAlign: "center",
-                  fontFamily: "'Orbitron', sans-serif",
-                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
-                  animation: "pulse 2s infinite alternate",
-                  backdropFilter: "blur(10px)",
-                }}
-              >
-                Chess Game in C++
-              </div>
-            </Html>
+                <div
+                  style={{
+                    background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                    borderRadius: "15px",
+                    width: window.innerWidth < 768 ? "22vh" : "27.44vh",
+                    fontSize: window.innerWidth < 768 ? "18px" : "22px",
+                    padding: "15px",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "'Orbitron', sans-serif",
+                    boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                    animation: "pulse 2s infinite alternate",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Chess Game in C++
+                </div>
+              </Html>
             )}
-          </group>
+          </ResponsiveObject>
+
 
           {/* Book Interaction */}
-          <group position={[-0.7, 1.79, 2]} rotation={[0, 180, 0]} scale={0.2}>
+          <ResponsiveObject
+            widePosition={[-0.7, 1.79, 2]}
+            narrowPosition={[-0.4, 1.79, 2]} // Shift inward on small screens
+            wideScale={[0.2, 0.2, 0.2]}
+            narrowScale={[0.15, 0.15, 0.15]} // Slightly smaller for compact layout
+            rotation={[0, 180, 0]}
+          >
             <mesh
               scale={hoveredBook ? 1.3 : 1}
               onPointerOver={() => setHoveredBook(true)}
@@ -187,34 +212,41 @@ export const DeskScene = () => {
             >
               <Book />
               <boxGeometry args={[1, 1, 1]} />
-              <meshBasicMaterial transparent opacity={0} />
+              <meshBasicMaterial transparent opacity={1} />
             </mesh>
 
             {hoveredBook && (
               <Html position={[0, 4, 0]} center>
                 <div
                   style={{
-                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
-                  borderRadius: "15px",
-                  width: "250px",
-                  fontSize: "22px",
-                  padding: "15px",
-                  color: "#fff",
-                  textAlign: "center",
-                  fontFamily: "'Orbitron', sans-serif",
-                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
-                  animation: "pulse 2s infinite alternate",
-                  backdropFilter: "blur(10px)",
-                   }}
+                    background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                    borderRadius: "15px",
+                    width: window.innerWidth < 768 ? "22vh" : "27.44vh",
+                    fontSize: window.innerWidth < 768 ? "18px" : "22px",
+                    padding: "15px",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "'Orbitron', sans-serif",
+                    boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                    animation: "pulse 2s infinite alternate",
+                    backdropFilter: "blur(10px)",
+                  }}
                 >
                   Book project
                 </div>
               </Html>
             )}
-          </group>
+          </ResponsiveObject>
 
           {/* Laptop Interaction */}
-          <group position={[1.5, 1.79, 2]} rotation={[0, 100.5, 0]} scale={0.2}>
+
+          <ResponsiveObject
+            widePosition={[1.5, 1.79, 2]}
+            narrowPosition={[1.1, 1.79, 2]} 
+            wideScale={[0.2, 0.2, 0.2]}
+            narrowScale={[0.15, 0.15, 0.15]} 
+            rotation={[0, 100.5, 0]}
+          >
             <mesh
               scale={hoveredLaptop ? 1.3 : 1}
               onPointerOver={() => setHoveredLaptop(true)}
@@ -228,31 +260,33 @@ export const DeskScene = () => {
 
             {hoveredLaptop && (
               <Html position={[0, 5, 0]} center>
-                 <div
+                <div
                   style={{
-                  background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
-                  borderRadius: "15px",
-                  width: "250px",
-                  fontSize: "22px",
-                  padding: "15px",
-                  color: "#fff",
-                  textAlign: "center",
-                  fontFamily: "'Orbitron', sans-serif",
-                  boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
-                  animation: "pulse 2s infinite alternate",
-                  backdropFilter: "blur(10px)",
-                   }}
+                    background: "linear-gradient(135deg, #00bcd4, #8e24aa)",
+                    borderRadius: "15px",
+                    width: window.innerWidth < 768 ? "22vh" : "27.44vh",
+                    fontSize: window.innerWidth < 768 ? "18px" : "22px",
+                    padding: "15px",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "'Orbitron', sans-serif",
+                    boxShadow: "0 0 30px rgba(0, 255, 255, 0.7)",
+                    animation: "pulse 2s infinite alternate",
+                    backdropFilter: "blur(10px)",
+                  }}
                 >
                   3D Website
                 </div>
               </Html>
             )}
-          </group>
+          </ResponsiveObject>
+
 
         </>
       )}
 
       {scene === "main" && <Experience />}
+  
     </>
   );
 };

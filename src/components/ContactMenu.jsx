@@ -9,7 +9,6 @@ function ContactMenu() {
   return (
     <Html position={[10, 3, 0]} center>
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        {/* Contact Me Text */}
         <span
           style={{
             color: isHovered ? "#ff00ff" : "#00ffcc",
@@ -18,7 +17,6 @@ function ContactMenu() {
             transition: "color 0.3s ease",
           }}
         >
-          Links
         </span>
 
         {/* Hamburger Icon */}
@@ -40,14 +38,14 @@ function ContactMenu() {
         </button>
       </div>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div
           style={{
             position: "absolute",
             top: "50px",
             right: "0",
-            width: "250px",
+            minWidth:"27.44vh",
+            minHeight:"1vh",
             background: "rgba(30, 30, 30, 0.95)",
             padding: "20px",
             borderRadius: "10px",

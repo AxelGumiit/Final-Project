@@ -1,11 +1,13 @@
 import { KeyboardControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas , useThree} from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
-import { Suspense, useState, useMemo } from "react";
+import { Suspense, useState, useMemo,useEffect } from "react";
 import { Experience } from "./Scenes/MainScene";
 import { Html, useProgress } from "@react-three/drei";
+import ResizeListener from "./components/ResizeListener";
+import ResponsiveCanvas from "./components/ResponsiveCanvas";
 
-// Define controls
+
 export const Controls = {
   forward: "forward",
   back: "back",
@@ -13,6 +15,8 @@ export const Controls = {
   right: "right",
   jump: "jump",
 };
+
+
 
 function LoadingScreen() {
   const { progress } = useProgress(); 
@@ -140,7 +144,8 @@ function App() {
 
       {startLoading && (
         <KeyboardControls map={map}>
-          <Canvas shadows camera={{ position: [-9, 5, 15], fov: 25 }}>
+          
+          <ResponsiveCanvas>
             {/* Futuristic Background */}
             <color attach="background" args={["#121212"]} /> 
 
@@ -153,8 +158,10 @@ function App() {
                 <Experience />
               </Physics>
             </Suspense>
-          </Canvas>
+            <ResizeListener/>
+          </ResponsiveCanvas>
         </KeyboardControls>
+        
       )}
     </div>
   );

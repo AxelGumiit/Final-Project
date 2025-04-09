@@ -4,6 +4,7 @@ import { Environment, Html, PerspectiveCamera } from "@react-three/drei";
 import ContactMenu from "../components/ContactMenu";
 import homeIcon from "../assets/home.png"
 
+
 export const ComputerScene = () => {
   const [scene, setScene] = useState("computerScene");
 
@@ -57,33 +58,33 @@ export const ComputerScene = () => {
       {scene === "computerScene" && (
         <>
           <group>
-            <PerspectiveCamera makeDefault position={[0, 3, 5]} fov={100} near={0.1} far={1000} />
+            <PerspectiveCamera makeDefault position={[0, 3, 5]} fov={100}/>
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
             <group position={[0, 5, 0]}>
               <ContactMenu />
             </group>
-            <Html position={[-18, 12, -3]} style={{ position: "fixed", top: "20px", left: "20px", zIndex: 1000 }}>
+            <Html position={[-18, 12, -3]} style={{ position: "relative", top: "20px", left: "20px", zIndex: 1000 }}>
               <img
-                src={homeIcon} 
+                src={homeIcon}
                 alt="Return to Home"
                 style={{
-                  width: "100px",
-                  height: "100px",
+                  width: "10.97vh",
+                  height: "10.97vh",
                   cursor: "pointer",
-                  backgroundColor: "transparent", 
-                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)", 
-                  border: "2px solid rgba(0, 255, 255, 0.8)", 
-                  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out", 
+                  backgroundColor: "white",
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)",
+                  border: "2px solid rgba(0, 255, 255, 0.8)",
+                  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                 }}
                 onClick={handleReturnHome}
                 onMouseEnter={(e) => {
-                  e.target.style.transform = "scale(1.1)"; 
-                  e.target.style.boxShadow = "0 0 25px rgba(0, 255, 255, 1)"; 
+                  e.target.style.transform = "scale(1.1)";
+                  e.target.style.boxShadow = "0 0 25px rgba(0, 255, 255, 1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.transform = "scale(1)"; 
-                  e.target.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.6)"; 
+                  e.target.style.transform = "scale(1)";
+                  e.target.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.6)";
                 }}
               />
             </Html>
@@ -92,7 +93,7 @@ export const ComputerScene = () => {
               <div
                 style={{
                   width: "100vh",
-                  height: "600px",
+                  height: "65.86vh",
                   background: "linear-gradient(135deg, #1c1c1c, #0e0f11)",
                   padding: "30px",
                   borderRadius: "20px",
@@ -164,6 +165,7 @@ export const ComputerScene = () => {
       )}
 
       {scene === "main" && <Experience />}
+  
     </>
   );
 };
@@ -180,13 +182,13 @@ const inputStyle = {
   transition: "border 0.3s, box-shadow 0.3s",
 };
 
-// Textarea Styling
+
 const textareaStyle = {
   ...inputStyle,
-  height: "120px",
+  height: "13.17vh",
 };
 
-// Button Styling
+
 const buttonStyle = {
   padding: "12px 30px",
   backgroundColor: "#00F2FF",
