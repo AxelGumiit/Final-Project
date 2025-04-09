@@ -12,6 +12,7 @@ import { Computer } from "../Items/Computer.jsx";
 import { GameMachine } from "../Items/GameMachine.jsx";
 import { ComputerScene } from "./ComputerScene.jsx";
 import ContactMenu from "../components/ContactMenu.jsx";
+import { Controls } from "../Items/Controls.jsx";
 
 
 
@@ -50,7 +51,7 @@ export const Experience = () => {
   const toggleControls = () => {
     setShowInfo(!showInfo);
     if (!showInfo) {
-      setInfoContent("The controls for the Avatar are: <strong>WASD</strong> for movement<br/><br/><strong>Hover and Click</strong>  on the objects to Interact<br/><br/> This Scene replicates my room");  
+      setInfoContent("The controls for the Avatar are: <strong>WASD</strong> for movement<br/><br/><strong>Hover and Click</strong>  on the objects to Interact<br/>");  
 
 
     }
@@ -275,91 +276,97 @@ export const Experience = () => {
             </group>
           </Physics>
                 {/* 3D Interactive Mesh Button */}
-      <group
-        position={[-4, 2, -3]}
-        onPointerOver={() => setHoveredButton(true)}
-        onPointerOut={() => setHoveredButton(false)}
-        onClick={toggleControls}
-      >
-        <mesh position={[1,0.5,-0.5]}> 
-          <boxGeometry args={[1, 0.5, 0.2]} />
-          
-          <meshStandardMaterial color={hoveredButton ? "gold" : "black"} />
-          {hoveredButton && (
-            <Html position={[0, 0.8, 0]} center>
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #6a0dad, #ff007f)",
-                  borderRadius: "15px",
-                  width: "27.44vh",
-                  fontSize: "22px",
-                  padding: "15px",
-                  color: "#fff",
-                  textAlign: "center",
-                  fontFamily: "'Orbitron', sans-serif",
-                  boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
-                  animation: "pulse 2s infinite alternate",
-                  backdropFilter: "blur(10px)",
-                }}
-              >
-                Toggle For Information
-              </div>
-            </Html>
-          )}
-        </mesh>
-      </group>
+        <group
+          position={[-2,3, -3]}
+          onPointerOver={() => setHoveredButton(true)}
+          onPointerOut={() => setHoveredButton(false)}
+          onClick={toggleControls}
+        >
+         <Controls/>
+            {hoveredButton && (
+              <Html position={[0, -1, 0]} center>
+                <div
+                  style={{
+                    background: "linear-gradient(135deg, #6a0dad, #ff007f)",
+                    borderRadius: "15px",
+                    width: "27.44vh",
+                    fontSize: "22px",
+                    padding: "15px",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "'Orbitron', sans-serif",
+                    boxShadow: "0 0 30px rgba(255, 0, 255, 0.7)",
+                    animation: "pulse 2s infinite alternate",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Controls for website
+                </div>
+              </Html>
+            )}
+        </group>
 
-      {/* Information Panel (Popup) */}
-      {showInfo && (
-        <Html position={[0, 0, 0]} center>
-          <div
-            style={{
-              background: "rgba(0, 0, 0, 0.7)",
-              color: "#00ffcc",  /* Neon color */
-              borderRadius: "15px",
-              padding: "30px",
-              width: "60vw", 
-              height: "50vh",
-              textAlign: "center",
-              fontSize: "36px",
-              boxShadow: "0 0 25px rgba(0, 255, 204, 0.8)", /* Glowing neon effect */
-              fontFamily: "'Orbitron', sans-serif",
-              transform: "scale(1.05)",  
-              transition: "transform 0.3s ease-in-out",
-            }}
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} 
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-          >
-            <h2 style={{ fontSize: "48px", marginBottom: "20px", color: "#ff00ff" }}>Information</h2>
+        {/* Information Panel (Popup) */}
+        {showInfo && (
+          <Html position={[0, 0, 0]} center>
             <div
               style={{
-                fontSize: "28px",
-                lineHeight: "1.6",
-                color: "#00ffff", 
+                background: "rgba(0, 0, 0, 0.7)",
+                color: "#00ffcc",
+                borderRadius: "15px",
+                padding: "5vw",
+                maxWidth: "90vw",
+                width: "600px",
+                height: "auto",
+                textAlign: "center",
+                fontSize: "2.5vw",
+                boxShadow: "0 0 25px rgba(0, 255, 204, 0.8)",
+                fontFamily: "'Orbitron', sans-serif",
+                transform: "scale(1.05)",
+                transition: "transform 0.3s ease-in-out",
               }}
-              dangerouslySetInnerHTML={{ __html: infoContent }} 
-            />
-            <button
-              onClick={closeInfoPanel}
-              style={{
-                padding: "15px 25px",
-                backgroundColor: "#ff0055", 
-                marginTop: "30px",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                cursor: "pointer",
-                fontSize: "18px",
-                boxShadow: "0 0 15px rgba(255, 0, 85, 0.6)", /* Glowing effect */
-                transition: "all 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => e.target.style.boxShadow = '0 0 30px rgba(255, 0, 85, 1)'}  /* Glowing hover */
-              onMouseLeave={(e) => e.target.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.6)'}  /* Reset glow */
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-              Close
-            </button>
-          </div>
-        </Html>
+              <h2 style={{
+                fontSize: "4vw",
+                marginBottom: "2vh",
+                color: "#ff00ff"
+              }}>
+                Controls
+              </h2>
+
+              <div
+                style={{
+                  fontSize: "1.8vw",
+                  lineHeight: "1.6",
+                  color: "#00ffff",
+                }}
+                dangerouslySetInnerHTML={{ __html: infoContent }}
+              />
+
+              <button
+                onClick={closeInfoPanel}
+                style={{
+                  padding: "1vh 2vw",
+                  backgroundColor: "#ff0055",
+                  marginTop: "3vh",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  fontSize: "1.4vw",
+                  boxShadow: "0 0 15px rgba(255, 0, 85, 0.6)",
+                  transition: "all 0.3s ease-in-out",
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 0, 85, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.6)'}
+              >
+                Close
+              </button>
+            </div>
+          </Html>
+
 
       )}
         </>

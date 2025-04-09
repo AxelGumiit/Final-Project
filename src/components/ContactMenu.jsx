@@ -16,14 +16,14 @@ function ContactMenu() {
             fontFamily: "'Orbitron', sans-serif",
             transition: "color 0.3s ease",
           }}
-        >
-        </span>
+        ></span>
 
         {/* Hamburger Icon */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          aria-label="Toggle Contact Menu"
           style={{
             background: "none",
             border: "none",
@@ -38,14 +38,15 @@ function ContactMenu() {
         </button>
       </div>
 
+      {/* Contact Menu */}
       {isOpen && (
         <div
           style={{
             position: "absolute",
             top: "50px",
             right: "0",
-            minWidth:"27.44vh",
-            minHeight:"1vh",
+            minWidth: "27.44vh",
+            minHeight: "1vh",
             background: "rgba(30, 30, 30, 0.95)",
             padding: "20px",
             borderRadius: "10px",
@@ -53,6 +54,8 @@ function ContactMenu() {
             backdropFilter: "blur(10px)",
             textAlign: "right",
             fontFamily: "'Orbitron', sans-serif",
+            opacity: isOpen ? 1 : 0,
+            transition: "opacity 0.3s ease",
           }}
         >
           <a href="https://github.com/AxelGumiit" target="_blank" style={linkStyle}>
@@ -81,6 +84,9 @@ const linkStyle = {
   fontSize: "1.2rem",
   marginBottom: "10px",
   transition: "color 0.3s ease",
+  ":hover": {
+    color: "#ff00ff",
+  },
 };
 
 export default ContactMenu;

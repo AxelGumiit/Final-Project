@@ -44,7 +44,7 @@ export const DeskScene = () => {
           <group>
             <Environment preset="sunset" />
             <ambientLight intensity={1} />
-            <group position={[-3,3,0]}><ContactMenu/></group>
+            <group position={[-3.5,3,0]}><ContactMenu/></group>
 
 
             <Html position={[-11, 8, -3]}>

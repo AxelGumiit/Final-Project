@@ -61,20 +61,23 @@ export const AvatarController = () => {
   const character = useRef()
   return (
     <group>
-      <RigidBody
-        ref={rigidbody}
-        colliders={false}
-        scale={[0.5, 0.5, 0.5]}
-        enabledRotations={[false, false, false]}
-        onCollisionEnter={() => {
-          isOnFloor.current = true
-        }}
-      >
-        <CapsuleCollider args={[1, 0.4]} position={[0, 1.2, 0]} />
-        <group scale={2} ref={character}>
-          <Avatar isMoving={isMoving} />
-        </group>
-      </RigidBody>
-    </group>
-  )
+    <RigidBody
+      ref={rigidbody}
+      colliders={false}
+      scale={[0.5, 0.5, 0.5]}
+      enabledRotations={[false, false, false]} 
+      onCollisionEnter={() => {
+        isOnFloor.current = true 
+      }}
+      onCollisionExit={() => {
+        isOnFloor.current = false
+      }}
+    >
+      <CapsuleCollider args={[1, 0.4]} position={[0, 1.2, 0]} />
+      <group scale={2} ref={character}>
+        <Avatar isMoving={isMoving} />
+      </group>
+    </RigidBody>
+  </group>
+)
 }
