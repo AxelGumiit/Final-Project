@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import homeIcon from "../assets/home.png"
 import { Environment, Html, PerspectiveCamera } from '@react-three/drei';
 import { Experience } from "./MainScene";
@@ -16,6 +16,16 @@ export const DeskScene = () => {
   const [hoveredLaptop, setHoveredLaptop] = useState(false)
   const [hoveredBook, setHoveredBook] = useState(false);
   const [scene, setScene] = useState("DeskScene");
+
+    const isHovering = hoveredProject1|| hoveredChess || hoveredLaptop || hoveredBook;
+  
+    useEffect(() => {
+      if (isHovering) {
+        document.body.classList.add("pointer-cursor");
+      } else {
+        document.body.classList.remove("pointer-cursor");
+      }
+    }, [isHovering]);
 ``
   const handleClickProject1 = () => {
     window.open("/Html_Pages/Project1.html");

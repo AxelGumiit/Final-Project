@@ -1,5 +1,5 @@
-import { Environment, OrbitControls } from "@react-three/drei";
-import { useState } from "react";
+import { Environment} from "@react-three/drei";
+import { useState,useEffect } from "react";
 import { Physics, RigidBody, CylinderCollider, CuboidCollider } from "@react-three/rapier";
 import { AvatarController } from "../components/AvatarController.jsx";
 import { Html } from '@react-three/drei';
@@ -28,6 +28,18 @@ export const Experience = () => {
   const [isNight, setIsNight] = useState(false); 
   const [avatarVisible, setAvatarVisible] = useState(true); 
   const [infoContent, setInfoContent] = useState("")
+
+
+
+  const isHovering = hoveredTable || hoveredTable2 || hoveredGame || hoveredBed || hoveredButton;
+
+  useEffect(() => {
+    if (isHovering) {
+      document.body.classList.add("pointer-cursor");
+    } else {
+      document.body.classList.remove("pointer-cursor");
+    }
+  }, [isHovering]);
 
   const toggleDayNight = () => {
     setIsNight(!isNight);
@@ -63,10 +75,13 @@ export const Experience = () => {
     setScene("main"); 
   };
 
+  
+
+
 
   return (
     <>
-
+      
 
 
       {scene === "main" && (
@@ -112,7 +127,7 @@ export const Experience = () => {
                     <mesh scale={hoveredTable ? 1.2 : 1}>
                       <Table />
                       <mesh position={[0,1.5,0]}>
-                      <boxGeometry args={[8, 3, 3]} />
+                      <boxGeometry args={[5, 3, 3]} />
                       <meshStandardMaterial opacity={0} transparent={true} />
                       </mesh>
                     </mesh>
@@ -253,8 +268,8 @@ export const Experience = () => {
                 <RigidBody type="fixed" colliders="cuboid">
                   <mesh scale={hoveredBed ? 1.2 : 1}>
                     <Bed />
-                    <boxGeometry args={[0, 0, 0]} />
-                    <meshBasicMaterial transparent opacity={0} />
+                    <boxGeometry args={[6, 6, 6]} />
+                    <meshStandardMaterial opacity={1} transparent={true} />
                   </mesh>
 
                   

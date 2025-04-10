@@ -23,7 +23,7 @@ const ResponsiveCanvas = ({ children }) => {
     <Canvas
       shadows
       camera={{ position: cameraPosition, fov: 25 }}
-      style={{ width: '100%', height: '100%' }}
+      style={{ width: '100%', height: '100%',  cursor: 'auto'  }}
     >
       {children}
     </Canvas>
