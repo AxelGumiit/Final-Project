@@ -112,7 +112,7 @@ export const Experience = () => {
 
                 {/* Desk object */}
                 <group
-                  position={[2.5, 1, 2.3]} 
+                  position={[2.5, 1, 2.4]} 
                   rotation={[0, -89.52, 0]}
                   scale={0.3}
                   onClick={avatarVisible ? handleClickDesk : undefined}
