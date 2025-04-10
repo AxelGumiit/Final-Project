@@ -112,7 +112,7 @@ export const Experience = () => {
 
                 {/* Desk object */}
                 <group
-                  position={[2.5, 1, 2]} 
+                  position={[2.5, 1, 2.3]} 
                   rotation={[0, -89.52, 0]}
                   scale={0.3}
                   onClick={avatarVisible ? handleClickDesk : undefined}
@@ -268,8 +268,8 @@ export const Experience = () => {
                 <RigidBody type="fixed" colliders="cuboid">
                   <mesh scale={hoveredBed ? 1.2 : 1}>
                     <Bed />
-                    <boxGeometry args={[6, 6, 6]} />
-                    <meshStandardMaterial opacity={1} transparent={true} />
+                    <boxGeometry args={[5, 5, 5]} />
+                    <meshStandardMaterial opacity={0} transparent={true} />
                   </mesh>
 
                   
